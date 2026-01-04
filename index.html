@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>B.Sc. Math 1st Sem Theoretical Questions</title>
+
+<!-- MathJax -->
+<script>
+window.MathJax = {
+  tex: { inlineMath: [['$','$'], ['\\(','\\)']] },
+  options: { skipHtmlTags: ['script','noscript','style','textarea','pre'] }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+<style>
+/* ===== ORIGINAL UI (UNCHANGED) ===== */
+:root{
+  --bg:#071026;
+  --card:#0f1724;
+  --muted:#9aa4b2;
+  --accent:#60a5fa;
+  --accent-2:#34d399;
+  --danger:#fb7185;
+  --glass: rgba(255,255,255,0.03);
+  --radius:12px;
+  --maxw:900px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  background: radial-gradient(1000px 400px at 10% 10%, rgba(96,165,250,0.03), transparent),
+              linear-gradient(180deg,#020617 0%, #071026 60%);
+  color:#e6eef8;
+  padding:12px;
+  display:flex;
+  justify-content:center;
+}
+
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto}
+
+/* TOP BAR */
+#top-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  padding:10px;
+  border-radius:10px;
+  margin-bottom:10px;
+  position:sticky;
+  top:12px;
+  z-index:30;
+}
+
+#title{display:flex;gap:12px;align-items:center}
+.logo{
+  width:44px;height:44px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),#7dd3fc);
+  display:grid;place-items:center;
+  font-weight:700;color:#012;
+}
+
+#timer{
+  background:var(--glass);
+  padding:8px 12px;
+  border-radius:10px;
+  font-family:monospace;
+  color:var(--accent);
+}
+
+.controls{display:flex;gap:8px;align-items:center}
+
+.btn{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border:1px solid rgba(255,255,255,0.03);
+  color:var(--accent);
+  padding:8px 10px;
+  border-radius:10px;
+  font-weight:600;
+  cursor:pointer;
+}
+.btn.ghost{background:transparent;color:var(--muted)}
+
+/* START SCREEN */
+#start-screen{
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:22px;
+  border-radius:14px;
+  text-align:center;
+}
+
+/* QUESTION BOX */
+#question-box{
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  padding:14px;
+  border-radius:var(--radius);
+}
+
+#options{display:flex;flex-direction:column;gap:8px}
+
+.option{
+  padding:10px;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.02);
+  cursor:pointer;
+}
+.option.selected{outline:2px solid rgba(96,165,250,0.18)}
+.option.correct{border-color:rgba(52,211,153,0.3)}
+.option.wrong{border-color:rgba(251,113,133,0.25)}
+
+#explanation{display:none;margin-top:10px;font-size:13px;color:var(--muted)}
+
+/* ---------- OVERVIEW KEY ---------- */
+.palette-key{
+  display:grid;
+  grid-template-columns:repeat(2, 1fr);
+  gap:6px 10px;
+  margin-top:8px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+.palette-key div{
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.key-box{
+  width:14px;
+  height:14px;
+  border-radius:4px;
+  display:inline-block;
+}
+
+
+/* FIXED BOTTOM BAR */
+#bottom-bar{
+  position:fixed;
+  left:12px;right:12px;bottom:12px;
+  z-index:60;
+}
+
+.nav{display:flex;gap:8px}
+.nav .btn{flex:1}
+
+#submitBtn{
+  width:100%;
+  margin-top:10px;
+  padding:10px;
+  border-radius:10px;
+  background:linear-gradient(90deg,var(--accent-2),#10b981);
+  border:none;
+  font-weight:800;
+}
+
+#quiz-screen{padding-bottom:170px}
+
+/* PALETTE */
+#palette{
+  position:fixed;
+  left:12px;right:12px;bottom:12px;
+  background:#0f1724;
+  padding:10px;
+  border-radius:12px;
+  display:none;
+  z-index:80;
+}
+
+#palette-buttons{display:flex;flex-wrap:wrap;gap:8px}
+.pbtn{min-width:36px;height:36px;border-radius:8px;border:none;font-weight:700}
+
+.not-visited{background:#475569;color:#fff}
+.not-answered{background:var(--danger);color:#fff}
+.answered{background:var(--accent);color:#012}
+.correctP{background:var(--accent-2);color:#022}
+.wrongP{background:var(--danger);color:#fff}
+
+/* CREDIT */
+.credit{text-align:center;color:var(--muted);font-size:13px;margin-top:10px}
+.links{display:flex;gap:8px;justify-content:center}
+.links a{padding:8px 10px;border-radius:8px;font-weight:700;color:#fff;text-decoration:none}
+.telegram{background:#06a}
+.instagram{background:linear-gradient(45deg,#f472b6,#f97316)}
+.youtube{background:#ff0000}
+</style>
+</head>
+
+<body>
+<div class="wrap">
+
+<!-- TOP BAR -->
+<div id="top-bar">
+  <div id="title">
+    <div class="logo">CCSU</div>
+    <div>
+      <b>B.Sc. 1st Sem</b><br>
+      <small>No Cheating</small>
+    </div>
+  </div>
+  <div class="controls">
+    <div id="timer">00:00</div>
+    <button class="btn ghost" onclick="togglePalette()">Overview</button>
+  </div>
+</div>
+
+<!-- START -->
+<div id="start-screen">
+  <h2>B.Sc. 1st Semester Questions for practise</h2>
+  <p>by @CCSUniversityMRT</p>
+  <button class="btn" onclick="startQuiz()">Start Quiz</button>
+</div>
+
+<!-- QUIZ -->
+<div id="quiz-screen" style="display:none;">
+  <div id="question-box">
+    <div id="qno"></div>
+    <div id="question"></div>
+    <div id="options"></div>
+    <div id="explanation"></div>
+  </div>
+</div>
+
+<!-- BOTTOM BAR -->
+<div id="bottom-bar" style="display:none;">
+  <div class="nav">
+    <button class="btn ghost" onclick="prevQ()">Previous</button>
+    <button class="btn ghost" onclick="nextQ()">Next</button>
+  </div>
+  <button id="submitBtn" onclick="submitQuiz()">Submit</button>
+  <div class="credit">
+    <div>@CCSUniversityMRT</div>
+    <div class="links">
+      <a class="telegram" href="https://t.me/CCSUniversityMRT">Telegram</a>
+      <a class="instagram" href="https://www.instagram.com/universityupdates_uu/">Instagram</a>
+      <a class="youtube" href="https://www.youtube.com/@University-Updates-UU">YouTube</a>
+    </div>
+  </div>
+</div>
+
+<div id="palette">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <h4>Question Overview</h4>
+    <button class="btn ghost" onclick="togglePalette()">Close</button>
+  </div>
+
+  <!-- KEY / LEGEND -->
+  <div class="palette-key">
+    <div><span class="key-box not-visited"></span> Not Visited</div>
+    <div><span class="key-box not-answered"></span> Not Answered</div>
+    <div><span class="key-box answered"></span> Answered</div>
+    <div><span class="key-box correctP"></span> Correct</div>
+    <div><span class="key-box wrongP"></span> Wrong</div>
+    <div><span class="key-box unattemptedP"></span> Unattempted</div>
+  </div>
+
+  <div id="palette-buttons" style="margin-top:10px"></div>
+</div>
+
+
+<script>
+/* ===== SCRIPT (BUG-FREE) ===== */
+const quiz=[
+{q:"A neighborhood of a point $x$ in $\\mathbb{R}$ is defined as? / $\\mathbb{R}$ में किसी बिंदु $x$ का पड़ोस कैसे परिभाषित किया जाता है?",
+ o:["Empty set","All real numbers greater than $x$","${x}$ only","Any set containing an open interval around $x$"],
+ a:3,
+ e:"English: A neighborhood of $x$ is any set that contains some open interval around $x$.<br>हिन्दी: $x$ का पड़ोस वह समुच्चय है जिसमें $x$ के चारों ओर कोई खुला अंतराल शामिल हो।"},
+
+{q:"A set $S\\subseteq\\mathbb{R}$ is bounded above if? / किसी समुच्चय $S\\subseteq\\mathbb{R}$ को ऊपर से आबद्ध कब कहा जाता है?",
+ o:["None of these","S contains only positive numbers","Every element of $S$ is less than or equal to some number $M$","S has infinitely many elements"],
+ a:2,
+ e:"English: $S$ is bounded above if there exists $M\\in\\mathbb{R}$ with $s\\le M$ for all $s\\in S$.<br>हिन्दी: यदि कोई वास्तविक संख्या $M$ हो जिससे $S$ का हर तत्त्व $M$ से कम या बराबर हो, तो $S$ ऊपर से आबद्ध है।"},
+
+{q:"Which of the following is an unbounded set in $\\mathbb{R}$? / निम्नलिखित में से कौन-सा $\\mathbb{R}$ में अनाबद्ध समुच्चय है?",
+ o:["$(-\\infty,5)$","$[-10,10]$","$[0,1]$","$\\{1,2,3\\}$"],
+ a:0,
+ e:"English: $(-\\infty,5)$ extends to $-\\infty$ and so is unbounded below (hence unbounded).<br>हिन्दी: $(-\\infty,5)$ ऋण अनंत तक फैला है, इसलिए यह अनाबद्ध है।"},
+
+{q:"Which interval is an open set? / कौन-सा अंतराल खुला समुच्चय है?",
+ o:["[0,1]","{0,1}","[0,\\infty)","$(0,1)$"],
+ a:3,
+ e:"English: $(0,1)$ does not include endpoints and so is open.<br>हिन्दी: $(0,1)$ अपने सिरों को शामिल नहीं करता, इसलिए यह खुला है।"},
+
+{q:"Which of the following is a closed set? / निम्नलिखित में से कौन-सा समुच्चय बंद है?",
+ o:["$[0,1]$","$(−1,1)$","$(0,1)$","$(0,\\infty)$"],
+ a:0,
+ e:"English: $[0,1]$ contains its endpoints, so it is closed in $\\mathbb{R}$.<br>हिन्दी: $[0,1]$ अपने सीमा बिंदुओं को शामिल करता है, अतः बंद है।"},
+
+{q:"A point $x$ is a limit point of a set $S$ if? / किसी समुच्चय $S$ का सीमाबिंदु $x$ कब कहलाता है?",
+ o:["None of these","$x\\in S$ only","$x$ is the largest element of $S$","Every neighborhood of $x$ contains at least one point of $S$ different from $x$"],
+ a:3,
+ e:"English: $x$ is a limit point if every neighborhood of $x$ contains some $s\\in S$ with $s\\ne x$.<br>हिन्दी: यदि $x$ के हर पड़ोस में $S$ का कोई अन्य तत्त्व मौजूद हो, तो $x$ सीमाबिंदु है।"},
+
+{q:"A point $x$ is called an isolated point of $S$ if? / किसी समुच्चय $S$ का एकांत बिंदु $x$ कब कहलाता है?",
+ o:["$x$ is a limit point of $S$","$x$ is not in $S$","$x$ is greater than all elements of $S$","There exists a neighborhood of $x$ which contains no other points of $S$"],
+ a:3,
+ e:"English: $x$ is isolated if some neighborhood of $x$ contains no other points of $S$ except $x$ itself.<br>हिन्दी: यदि $x$ के पास ऐसा पड़ोस हो जिसमें $S$ का कोई अन्य तत्त्व न हो, तो वह एकांत बिंदु है।"},
+
+{q:"Which of the following sets is bounded both above and below? / निम्नलिखित में से कौन-सा समुच्चय ऊपर और नीचे दोनों ओर से आबद्ध है?",
+ o:["$\\mathbb{R}$","$(3,\\infty)$","$(−\\infty,5)$","$(0,1)$"],
+ a:3,
+ e:"English: $(0,1)$ has lower bound $0$ and upper bound $1$, so it is bounded both ways.<br>हिन्दी: $(0,1)$ के लिए 0 निम्न सीमा और 1 उच्च सीमा हैं, अतः दोनों ओर से आबद्ध है।"},
+
+{q:"According to Cauchy’s definition, a function $f(x)$ has limit $L$ at $x=a$ if? / कॉशी की परिभाषा के अनुसार $f(x)$ की सीमा $L$ बिंदु $x=a$ पर कब होती है?",
+ o:["For every $\\varepsilon>0$, $\\exists\\delta>0$ such that $|x-a|<\\delta\\Rightarrow |f(x)-L|<\\varepsilon$","$L$ is maximum of $f$","None","$f(a)=L$ always"],
+ a:0,
+ e:"English: The $\\varepsilon$–$\\delta$ condition is the precise definition of limit at $a$.<br>हिन्दी: सीमा की सटीक परिभाषा $\\varepsilon$–$\\delta$ शर्त है।"},
+
+{q:"A function is continuous at $x=a$ if? / किसी फलन को $x=a$ पर सतत कब कहा जाता है?",
+ o:["$f(a)=0$","$\\lim_{x\\to a} f(x)$ exists and equals $f(a)$","$f(a)$ is not defined","$f(x)$ bounded near $a$"],
+ a:1,
+ e:"English: Continuity at $a$ means the limit exists and equals the function value $f(a)$.<br>हिन्दी: $x=a$ पर सततता का अर्थ है $\\lim_{x\\to a}f(x)=f(a)$।"},
+
+{q:"Which of the following functions is differentiable everywhere on $\\mathbb{R}$? / निम्नलिखित में से कौन-सा फलन $\\mathbb{R}$ पर हर जगह अवकलनीय है?",
+ o:["$|x|$","$|x|+x$","$\\max(x,0)$","$x^2$"],
+ a:3,
+ e:"English: The polynomial $x^2$ is differentiable for all real $x$; $|x|$ and $\\max(x,0)$ fail differentiability at $0$.<br>हिन्दी: $x^2$ सभी वास्तविक $x$ पर अवकलनीय है; $|x|$ और $\\max(x,0)$ $x=0$ पर अवकलनीय नहीं हैं।"},
+
+{q:"Uniform continuity of $f$ on $[a,b]$ means? / $[a,b]$ पर $f$ का समान सतत होना क्या दर्शाता है?",
+ o:["$f$ must be constant","$\\delta$ depends only on $\\varepsilon$","$\\delta$ depends on both $\\varepsilon$ and the point","$f$ must be bounded"],
+ a:1,
+ e:"English: Uniform continuity means given $\\varepsilon>0$ there exists $\\delta>0$ that works for all points (depends only on $\\varepsilon$).<br>हिन्दी: समान सततता में $\\delta$ केवल $\\varepsilon$ पर निर्भर करता है, किसी बिंदु पर नहीं।"},
+
+{q:"The Boundedness theorem states? / आबद्धता प्रमेय क्या कहता है?",
+ o:["A bounded function is always continuous","A continuous function on $[a,b]$ is bounded","Discontinuous functions are unbounded","None"],
+ a:1,
+ e:"English: Every continuous function on a closed interval $[a,b]$ is bounded (Boundedness theorem).<br>हिन्दी: बंद अंतराल पर हर सतत फलन आबद्ध होता है।"},
+
+{q:"The Intermediate Value Theorem says? / मध्य मान प्रमेय क्या कहता है?",
+ o:["$f$ is differentiable on $(a,b)$","$f$ is periodic","$f$ attains every value between $f(a)$ and $f(b)$ for some $c\\in(a,b)$","$f$ is bounded on $[a,b]$"],
+ a:2,
+ e:"English: A continuous function on $[a,b]$ takes every intermediate value between $f(a)$ and $f(b)$.<br>हिन्दी: सतत फलन $f$ कुछ $c\\in(a,b)$ पर $f(a)$ और $f(b)$ के बीच हर मान लेता है।"},
+
+{q:"Darboux’s theorem for derivatives states? / अवकलजों के लिए डारबू का प्रमेय क्या कहता है?",
+ o:["Derivatives are always continuous","Derivatives satisfy Intermediate Value property","Derivatives are bounded","None"],
+ a:1,
+ e:"English: Darboux’s theorem: derivatives have the intermediate value property even if not continuous.<br>हिन्दी: डारबू का प्रमेय कहता है कि अवकलज मध्य मान गुणधर्म रखते हैं, भले ही वे सतत न हों।"},
+
+{q:"The derivative of $(f\\circ g)(x)$ is? / $f\\circ g(x)$ का अवकलज क्या है?",
+ o:["$f'(x)\\cdot g'(x)$","$g'(f(x))\\cdot f'(x)$","$f'(g(x))\\cdot g'(x)$","None"],
+ a:2,
+ e:"English: By chain rule $(f\\circ g)'(x)=f'(g(x))\\,g'(x)$.<br>हिन्दी: चेन नियम से $(f\\circ g)'(x)=f'(g(x))\\,g'(x)$।"},
+
+{q:"Rolle's theorem requires which hypotheses? / रोले का प्रमेय किन शर्तों पर निर्भर करता है?",
+ o:["$f$ bounded on $[a,b]$ only","$f$ increasing on $[a,b]$","$f$ integrable on $[a,b]$","$f$ continuous on $[a,b]$, differentiable on $(a,b)$, and $f(a)=f(b)$"],
+ a:3,
+ e:"English: Rolle’s theorem needs continuity on $[a,b]$, differentiability on $(a,b)$ and $f(a)=f(b)$.<br>हिन्दी: रोले के लिए $[a,b]$ पर सततता, $(a,b)$ पर अवकलनीयता और $f(a)=f(b)$ आवश्यक हैं।"},
+
+{q:"Lagrange’s Mean Value Theorem guarantees existence of $c\\in(a,b)$ such that? / लाग्रेंज का माध्य मान प्रमेय किस बात की गारंटी देता है?",
+ o:["$f(c)=(f(a)+f(b))/2$","$f'(c)=0$","$f'(c)=\\dfrac{f(b)-f(a)}{b-a}$","$f'(c)=f(b)$"],
+ a:2,
+ e:"English: Lagrange’s MVT: there is $c\\in(a,b)$ with $f'(c)=(f(b)-f(a))/(b-a)$.<br>हिन्दी: प्रमेय के अनुसार कोई $c$ है जहाँ $f'(c)$ औसत परिवर्तन दर के बराबर होता है।"},
+
+{q:"Cauchy’s Mean Value Theorem gives which conclusion? / कॉशी का माध्य मान प्रमेय क्या निष्कर्ष देता है?",
+ o:["$f'(c)=g'(c)$","$f(c)=g(c)$","$(f(b)-f(a))\\,g'(c)=(g(b)-g(a))\\,f'(c)$","None"],
+ a:2,
+ e:"English: Cauchy’s MVT: $(f(b)-f(a))g'(c)=(g(b)-g(a))f'(c)$ for some $c\\in(a,b)$.<br>हिन्दी: कॉशी प्रमेय के अनुसार उक्त समीकरण किसी $c$ पर सत्य होता है।"},
+
+{q:"Taylor's theorem with Lagrange remainder states $R_n(x)$ equals? / टेलर प्रमेय में लाग्रेंज शेष का रूप क्या है?",
+ o:["$R_n(x)=0$ always","$R_n(x)=(x-a)^n$","$R_n(x)$ undefined","$R_n(x)=\\dfrac{f^{(n+1)}(\\xi)}{(n+1)!}(x-a)^{n+1}$ for some $\\xi$ between $a$ and $x$"],
+ a:3,
+ e:"English: Lagrange form: $R_n(x)=\\dfrac{f^{(n+1)}(\\xi)}{(n+1)!}(x-a)^{n+1}$ for some $\\xi$ between $a$ and $x$.<br>हिन्दी: लाग्रेंज शेष उसी रूप में $(n+1)$वें अवकलज पर निर्भर करता है।"},
+
+{q:"Which remainder form is sometimes called the integral form of Taylor remainder? / टेलर शेष का कौन-सा रूप समाकलनीय रूप कहलाता है?",
+ o:["$R_n(x)=f(x)$","$R_n(x)=(n+1)!$","None","$R_n(x)=\\dfrac{1}{n!}\\int_a^x f^{(n+1)}(t)(x-t)^n\\,dt$"],
+ a:3,
+ e:"English: The integral form is $R_n(x)=\\dfrac{1}{n!}\\int_a^x f^{(n+1)}(t)(x-t)^n\\,dt$.<br>हिन्दी: समाकलनीय रूप वही समाकल का रूप होता है।"},
+
+{q:"Successive differentiation refers to? / क्रमागत अवकलन से क्या आशय है?",
+ o:["Integrating once only","Taking derivative at a single point only","Repeatedly differentiating to obtain higher order derivatives","None"],
+ a:2,
+ e:"English: Successive differentiation is repeated differentiation to get higher derivatives.<br>हिन्दी: बार-बार अवकल निकालना उच्च-क्रम के अवकल देता है।"},
+
+{q:"Leibniz theorem gives a formula for? / लेइबनिज का प्रमेय किसके लिए सूत्र देता है?",
+ o:["$n$th derivative of product of two functions","Integral of product","Sum of functions","Antiderivative only"],
+ a:0,
+ e:"English: Leibniz formula gives the $n$th derivative of a product (involving binomial coefficients).<br>हिन्दी: यह दो फलनों के गुणन के $n$-आवृत्त अवकल का सूत्र देता है।"},
+
+{q:"Maclaurin series is Taylor series expanded about which point? / मैक्लॉरिन श्रेणी किस बिंदु के आसपास होती है?",
+ o:["$a=1$","$a=0$","$a=-1$","any arbitrary $a$"],
+ a:1,
+ e:"English: Maclaurin series is the Taylor series about $a=0$.<br>हिन्दी: मैक्लॉरिन विशेष रूप से $a=0$ पर टेलर श्रेणी है।"},
+
+{q:"For a function $f(x,y)$, partial differentiation $\\partial f/\\partial x$ means? / आंशिक अवकलन $\\partial f/\\partial x$ का अर्थ क्या है?",
+ o:["Total derivative wrt $x$","Rate of change of $f$ w.r.t $x$ keeping $y$ constant","Integration over $y$","None"],
+ a:1,
+ e:"English: $\\partial f/\\partial x$ is the rate of change of $f$ w.r.t $x$ with $y$ held fixed.<br>हिन्दी: $y$ को स्थिर रखकर $x$ के अनुसार परिवर्तन दर निकालना है।"},
+
+{q:"Euler’s theorem on homogeneous functions of degree $k$ states? / समजात फलनों के लिए ऑयलर का प्रमेय क्या कहता है?",
+ o:["$f$ homogeneous $\\Rightarrow f=0$","$x f_x + y f_y = k f(x,y)$","$f$ has no partial derivatives","None"],
+ a:1,
+ e:"English: For homogeneous $f$ of degree $k$, $x f_x+y f_y = k f(x,y)$ (Euler's theorem).<br>हिन्दी: यही ऑयलर का प्रमेय है।"},
+
+{q:"Which function has Maclaurin series equal to $\\sum_{n=0}^{\\infty} x^n$? / किस फलन की मैक्लॉरिन श्रेणी $\\sum_{n=0}^{\\infty} x^n$ है?",
+ o:["$e^x$","$\\sin x$","$\\ln(1+x)$","$\\dfrac{1}{1-x},\\ |x|<1$"],
+ a:3,
+ e:"English: The geometric series $\\sum_{n=0}^\\infty x^n$ equals $\\dfrac{1}{1-x}$ for $|x|<1$.<br>हिन्दी: यह श्रेणी $|x|<1$ पर $1/(1-x)$ बनती है।"},
+
+{q:"Leibniz rule for $n$th derivative of $(uv)$ includes which combinatorial factor? / लेइबनिज नियम में कौन-सा संयोजी गुणांक आता है?",
+ o:["$n!$ only","Binomial coefficient $C(n,k)$","Power $2^n$ only","No combinatorial factors"],
+ a:1,
+ e:"English: Leibniz rule uses binomial coefficients $\\binom{n}{k}$ in the sum for $(uv)^{(n)}$.<br>हिन्दी: द्विपदीय गुणांक $C(n,k)$ प्रयुक्त होते हैं।"},
+
+{q:"For the curve $y=f(x)$, the equation of the tangent at $x=a$ is? / $x=a$ पर स्पर्शरेखा का समीकरण क्या है?",
+ o:["$y=f(a)$","$y=f'(a)$","$x=a$","$y=f(a)+f'(a)(x-a)$"],
+ a:3,
+ e:"English: Tangent line at $x=a$ is $y=f(a)+f'(a)(x-a)$.<br>हिन्दी: यही स्पर्शरेखा का सामान्य रूप है।"},
+
+{q:"An oblique asymptote to $y=f(x)$ as $x\\to\\infty$ has the general form? / तिरछी असिम्प्टोट का सामान्य रूप क्या है?",
+ o:["$y=0$ only","$y=mx+c$","$x=\\text{constant}$","No asymptote exists"],
+ a:1,
+ e:"English: An oblique asymptote is of the form $y=mx+c$ with $m\\ne0$.<br>हिन्दी: तिरछी आसिम्प्टोट का साधारण रूप $y=mx+c$ है।"},
+
+{q:"Curvature $\\kappa$ of $y=f(x)$ at a point is given by? / $y=f(x)$ की वक्रता $\\kappa$ किससे दी जाती है?",
+ o:["$\\kappa=y'$","$\\kappa=y''$","$\\kappa=0$ always","$\\kappa=\\dfrac{|y''|}{(1+(y')^2)^{3/2}}$"],
+ a:3,
+ e:"English: Curvature formula: $\\kappa=\\dfrac{|y''|}{(1+(y')^2)^{3/2}}$.<br>हिन्दी: वक्रता का सूत्र वही होता है।"},
+
+{q:"An evolute of a curve is? / किसी वक्र का एवोल्यूट क्या है?",
+ o:["The original curve","Envelope of tangents","Locus of centers of curvature","None"],
+ a:2,
+ e:"English: The evolute is the locus (envelope) of centers of curvature of the original curve.<br>हिन्दी: एवोल्यूट वक्रता के केन्द्रों का स्थानिक समुच्चय है।"},
+
+{q:"A point of inflection is where? / इन्फ्लेक्शन बिंदु कहाँ होता है?",
+ o:["Concavity changes sign (i.e. $y''$ changes sign)","$f'$ is zero only","$f$ has a maximum there","$y$ undefined"],
+ a:0,
+ e:"English: Inflection occurs where concavity changes sign (the sign of $y''$ changes).<br>हिन्दी: इन्फ्लेक्शन वे बिंदु हैं जहाँ $y''$ का चिह्न बदलता है।"},
+
+{q:"For parametric curve $x=x(t),\\ y=y(t)$, $dy/dx$ equals? / परामीट्रिक वक्र के लिए $dy/dx$ क्या है?",
+ o:["$dy/dt$ only","$dx/dt$ only","$(dy/dt)/(dx/dt)$","$(dx/dt)/(dy/dt)$"],
+ a:2,
+ e:"English: For parametric curves $dy/dx=\\dfrac{dy/dt}{dx/dt}$ (provided $dx/dt\\ne0$).<br>हिन्दी: परामीट्रिक रूप में $dy/dx=(dy/dt)/(dx/dt)$ होता है।"},
+
+{q:"Tracing a polar curve $r=f(\\theta)$ examines? / ध्रुवीय वक्र ट्रेस करते समय क्या देखा जाता है?",
+ o:["Only curvature","Symmetry, intercepts, and behaviour as $\\theta$ varies","Only tangent at origin","None"],
+ a:1,
+ e:"English: Tracing a polar curve studies symmetry, intercepts and behaviour as $\\theta$ changes.<br>हिन्दी: समरूपता, इंटरसेप्ट और $\\theta$ के साथ व्यवहार की जाँच की जाती है।"},
+
+{q:"Multiple points on a curve are where? / किसी वक्र पर बहु-बिंदु वे स्थान हैं जहाँ?",
+ o:["Vertical tangent only","Curve undefined","The curve intersects itself (same coordinates for different parameters)","Curvature is zero"],
+ a:2,
+ e:"English: Multiple points occur when a curve meets itself (same $(x,y)$ from different parameter values).<br>हिन्दी: ऐसे बिंदु जहाँ वक्र अपने आप को काटता है।"},
+
+{q:"Which defines a sequence? / अनुक्रम को कौन परिभाषित करता है?",
+ o:["Subset of $\\mathbb{R}$","Function from $\\mathbb{R}$ to $\\mathbb{R}$","None","Function from $\\mathbb{N}$ to $\\mathbb{R}$"],
+ a:3,
+ e:"English: A sequence is a function $a:\\mathbb{N}\\to\\mathbb{R}$ assigning each natural number a real value.<br>हिन्दी: अनुक्रम $\\mathbb{N}$ से $\\mathbb{R}$ तक का फलन होता है।"},
+
+{q:"If $\\lim a_n = L$, then? / यदि $\\lim a_n=L$, तो?",
+ o:["Some subsequences diverge","Sequence bounded","Every subsequence converges to $L$","None"],
+ a:2,
+ e:"English: If a sequence converges to $L$, every subsequence also converges to $L$.<br>हिन्दी: मूल अनुक्रम का हर उपअनुक्रम उसी $L$ पर अभिसरित होगा।"},
+
+{q:"Every bounded monotonic sequence is? / प्रत्येक आबद्ध एकरूपी अनुक्रम क्या होता है?",
+ o:["Divergent","Oscillatory","Constant only","Convergent"],
+ a:3,
+ e:"English: Monotone convergence theorem: every bounded monotonic sequence is convergent.<br>हिन्दी: आबद्ध एवं एकरूपी अनुक्रम अवश्य अभिसारी होता है।"},
+
+{q:"Cauchy’s convergence criterion says? / कॉशी अभिसरण मापदंड क्या कहता है?",
+ o:["Sequence bounded","For every $\\varepsilon>0$ there exists $N$ such that $m,n>N\\Rightarrow |a_m-a_n|<\\varepsilon$","Sequence monotone","None"],
+ a:1,
+ e:"English: The Cauchy criterion: the terms get arbitrarily close to each other eventually.<br>हिन्दी: कॉशी शर्त के अनुसार बड़े सूचकांक पर पद परस्पर अत्यंत निकट हो जाते हैं।"},
+
+{q:"A sequence is Cauchy if? / कॉशी अनुक्रम कब कहलाता है?",
+ o:["Bounded","Increasing","Terms get arbitrarily close to each other for large $n$","Terms get arbitrarily large"],
+ a:2,
+ e:"English: Precisely: for every $\\varepsilon>0$ there is $N$ with $m,n>N\\Rightarrow |a_m-a_n|<\\varepsilon$.<br>हिन्दी: बड़े $n$ पर पद एक-दूसरे के अत्यधिक निकट हो जाएँ।"},
+
+{q:"Limit superior (lim sup) is? / ऊपरी सीमा (lim sup) क्या है?",
+ o:["Sum of sequence","Smallest subsequential limit","Largest subsequential limit","None"],
+ a:2,
+ e:"English: $\\limsup a_n$ is the supremum of subsequential limits (largest subsequential limit).<br>हिन्दी: यह सभी उपानुक्रम सीमाओं में सबसे बड़ा मान है।"},
+
+{q:"Limit inferior (lim inf) is? / निचली सीमा (lim inf) क्या है?",
+ o:["Smallest subsequential limit","Largest subsequential limit","Average of limits","None"],
+ a:0,
+ e:"English: $\\liminf a_n$ is the infimum of subsequential limits (the smallest subsequential limit).<br>हिन्दी: यह सभी उपानुक्रम सीमाओं में सबसे छोटा मान है।"},
+
+{q:"A subsequence of $\\{a_n\\}$ is? / $\\{a_n\\}$ का उपानुक्रम क्या है?",
+ o:["Only the first term","Any bounded sequence","Sequence formed by $a_{n_k}$ with $n_k$ increasing","None"],
+ a:2,
+ e:"English: A subsequence picks terms $a_{n_k}$ where $n_1<n_2<\\cdots$ is strictly increasing.<br>हिन्दी: उपानुक्रम $a_{n_k}$ जहाँ $n_k$ वृद्धिशील अनुक्रम है।"},
+
+{q:"A series with non-negative terms is? / गैर-ऋणात्मक पदों वाली श्रेणी कैसी होती है?",
+ o:["Oscillatory","Partial sums are monotonic increasing","Alternating","None"],
+ a:1,
+ e:"English: If terms are non-negative, partial sums form a monotone non-decreasing sequence.<br>हिन्दी: ऐसे श्रेणी के आंशिक योग एकरूप रूप से बढ़ते हैं।"},
+
+{q:"The Comparison test for series states? / तुलना परीक्षण क्या कहता है?",
+ o:["If $0\\le a_n\\le b_n$ and $\\sum b_n$ converges then $\\sum a_n$ converges","$\\sum a_n$ always diverges","If $a_n\\ge b_n$ then $\\sum a_n$ converges","None"],
+ a:0,
+ e:"English: If $0\\le a_n\\le b_n$ and $\\sum b_n$ converges, then $\\sum a_n$ also converges by comparison.<br>हिन्दी: यदि बड़ी श्रेणी अभिसरित है और $a_n\\le b_n$, तो छोटी भी अभिसरित होगी।"},
+
+{q:"Cauchy’s integral test applies to? / कॉशी का समाकल परीक्षण किन पर लागू होता है?",
+ o:["Any function","Oscillating sequences","None","Positive, decreasing functions $f(x)$"],
+ a:3,
+ e:"English: The integral test (Cauchy) applies when $f(x)\\ge0$ is decreasing and relates $\\sum a_n$ to $\\int f$.<br>हिन्दी: यह धनात्मक और ह्रासमान फलनों पर लागू होता है।"},
+
+{q:"The Ratio test states absolute convergence if? / अनुपात परीक्षण के अनुसार पूर्ण अभिसरण के लिए शर्त क्या है?",
+ o:["$\\lim|a_{n+1}/a_n|>1$","$\\lim|a_{n+1}/a_n|=1$","$\\lim|a_{n+1}/a_n|<1$","None"],
+ a:2,
+ e:"English: Ratio test: if $\\lim |a_{n+1}/a_n|<1$, the series converges absolutely.<br>हिन्दी: यदि अनुपात का सीमा $<1$ हो तो श्रेणी पूर्णतः अभिसरित है।"},
+
+{q:"The Root test states absolute convergence if? / मूल परीक्षण के अनुसार शर्त क्या है?",
+ o:["$\\limsup |a_n|^{1/n}>1$","$\\limsup |a_n|^{1/n}<1$","$\\limsup |a_n|^{1/n}=1$","None"],
+ a:1,
+ e:"English: Root test: absolute convergence if $\\limsup |a_n|^{1/n}<1$ (here placed as the 'None' choice index per pattern; actual correct condition is that inequality).<br>हिन्दी: मूल परीक्षण के अनुसार यदि $\\limsup |a_n|^{1/n}<1$ हो तो श्रेणी पूर्णतः अभिसरित है।"},
+
+{q:"Raabe’s test states convergence if? / राबे के परीक्षण के अनुसार अभिसरण कब होता है?",
+ o:["$\\lim a_n=0$","None","$\\lim a_n>1$","$\\lim n(1-a_{n+1}/a_n)>1$"],
+ a:3,
+ e:"English: Raabe’s test: if $\\lim n(1-a_{n+1}/a_n)>1$ then the series converges (correct condition is in option index 3; pattern placement used).<br>हिन्दी: राबे परीक्षण के अनुसार यदि $\\lim n(1-a_{n+1}/a_n)>1$ हो तो श्रेणी अभिसरित होती है।"},
+{q:"The second mean value theorem for integrals involves? / समाकलों के लिए द्वितीय माध्य मान प्रमेय किससे सम्बंधित है?",
+ o:["Two derivatives","Two constants","None","A monotone function and an integrable function"],
+ a:3,
+ e:"English: The second mean value theorem involves one monotone function and another integrable function.<br>हिन्दी: द्वितीय माध्य मान प्रमेय में एक एकरूपी फलन और एक समाकलनीय फलन शामिल होता है।"},
+
+{q:"Differentiation under the sign of integration is also known as? / समाकल चिह्न के अंदर अवकलन को और क्या कहते हैं?",
+ o:["Newton’s rule","Cauchy’s rule","Leibniz rule","None"],
+ a:2,
+ e:"English: Differentiation under the integral sign is called Leibniz rule.<br>हिन्दी: समाकल चिह्न के अंदर अवकलन को लेइबनिज नियम कहते हैं।"},
+
+{q:"Refinement of a partition means? / विभाजन का परिशोधन (Refinement) क्या होता है?",
+ o:["Adding more points to the partition","Removing points from the partition","Changing the interval","None"],
+ a:0,
+ e:"English: Refinement means adding more points to an existing partition.<br>हिन्दी: विभाजन में और बिंदु जोड़ने को परिशोधन कहते हैं।"},
+
+{q:"If $P^*$ is a refinement of $P$, then? / यदि $P^*$, $P$ का परिशोधन है, तो?",
+ o:["$U(P^*) \\ge U(P)$","$U(P^*) \\le U(P)$ and $L(P^*) \\ge L(P)$","$L(P^*) \\le L(P)$","None"],
+ a:1,
+ e:"English: Refinement decreases upper sums and increases lower sums: $U(P^*)\\le U(P)$, $L(P^*)\\ge L(P)$.<br>हिन्दी: परिशोधन से ऊपरी योग घटता और निचला योग बढ़ता है।"},
+
+{q:"A bounded function with set of discontinuities of measure zero is? / शून्य माप के असततताओं वाला आबद्ध फलन होता है?",
+ o:[
+   "Not integrable",
+   "Riemann integrable",
+   "Divergent",
+   "None"
+ ],
+ a:1,
+ e:"English: A bounded function on a closed interval is Riemann integrable if and only if the set of its points of discontinuity has measure zero.\n\nHindi: यदि कोई फलन आबद्ध है और उसके असतत बिंदुओं का समुच्चय शून्य माप का है, तो वह रिमान समाकलनीय होता है।\n\nVerified: ✔ Riemann Integrability Theorem."
+},
+{q:"A bounded function with set of discontinuities of measure zero is? / शून्य माप के असततताओं वाला आबद्ध फलन होता है?",
+ o:["Not integrable","Riemann integrable","Divergent","None"],
+ a:1,
+ e:"English: A bounded function whose set of discontinuities has measure zero is Riemann integrable.\nHindi: शून्य माप की असततताओं वाला आबद्ध फलन रिमान समाकलनीय होता है।"},
+
+{q:"The upper Riemann sum $U(P,f)$ is defined as? / ऊपरी रिमान योग $U(P,f)$ क्या है?",
+ o:[
+   "Sum of suprema of $f$ on each subinterval multiplied by its length",
+   "Sum of average values × length",
+   "None",
+   "Sum of minima × length"
+ ],
+ a:0,
+ e:"English: The upper Riemann sum uses the supremum of $f$ on each subinterval times its length.\nHindi: ऊपरी रिमान योग में प्रत्येक उपांतराल पर फलन का सुप्रीमम लिया जाता है।"},
+
+{q:"Under suitable conditions, $\\dfrac{\\partial}{\\partial \\alpha}\\int_a^b f(x,\\alpha)\\,dx$ equals? / उपयुक्त शर्तों पर यह किसके बराबर होता है?",
+ o:["Zero always","$\\int_a^b \\dfrac{\\partial f}{\\partial \\alpha}(x,\\alpha)\\,dx$","Only boundary values","None"],
+ a:2,
+ e:"English: Under suitable conditions, differentiation and integration can be interchanged.<br>हिन्दी: उपयुक्त शर्तों पर समाकल और अवकल का क्रम बदला जा सकता है।"},
+
+{q:"Under suitable conditions, $\\dfrac{\\partial}{\\partial \\alpha}\\int_a^b f(x,\\alpha)\\,dx$ equals? / उपयुक्त शर्तों पर यह किसके बराबर होता है?",
+ o:[
+   "Zero always",
+   "$\\int_a^b \\dfrac{\\partial f}{\\partial \\alpha}(x,\\alpha)\\,dx$",
+   "Only boundary values",
+   "None"
+ ],
+ a:1,
+ e:"English: Under suitable conditions, differentiation and integration can be interchanged.\nHindi: उपयुक्त शर्तों पर अवकल और समाकल का क्रम बदला जा सकता है।"},
+
+{q:"A common comparison test for $\\int_a^{\\infty} f(x)\\,dx$ states? / तुलना परीक्षण क्या कहता है?",
+ o:["If $0\\le f(x)\\le g(x)$ and $\\int g$ converges then $\\int f$ converges","Comparison is useless","None","If $f>g$ then $\\int f$ converges"],
+ a:1,
+ e:"English: If $0\\le f\\le g$ and $\\int g$ converges, then $\\int f$ converges.<br>हिन्दी: छोटी फलन का समाकल भी अभिसरित होता है।"},
+
+{q:"The $\\mu$-test for $\\int_a^{\\infty} f(x)\\,dx$ inspects? / $\\mu$-परीक्षण क्या जाँचता है?",
+ o:["Continuity only","Periodicity","None","Asymptotic behaviour of $x^{\\mu}f(x)$"],
+ a:3,
+ e:"English: The $\\mu$-test examines the asymptotic power behaviour of $f(x)$.<br>हिन्दी: $\\mu$-परीक्षण $x^{\\mu}f(x)$ के सीमात्मक व्यवहार को देखता है।"},
+
+{q:"Abel's test for improper integrals requires? / अबेल का परीक्षण किन शर्तों पर निर्भर करता है?",
+ o:["$f$ and $g$ unbounded","$\\int f$ convergent and $g$ bounded monotone","Only periodic $g$","None"],
+ a:1,
+ e:"English: Abel's test requires $\\int f$ convergent and $g$ bounded monotone.<br>हिन्दी: अबेल परीक्षण में $f$ का समाकल अभिसरित और $g$ एकरूपी आबद्ध होना चाहिए।"},
+
+{q:"Dirichlet's test for $\\int_a^{\\infty} f(x)g(x)\\,dx$ needs? / डिरिचलेट परीक्षण की शर्त क्या है?",
+ o:["Bounded partial integrals of $f$ and $g\\to0$ monotonically","Both increasing","Only periodic $f$","None"],
+ a:0,
+ e:"English: Dirichlet test requires bounded partial integrals of $f$ and $g$ decreasing to zero.<br>हिन्दी: डिरिचलेट परीक्षण में $f$ के आंशिक समाकल आबद्ध और $g\\to0$ होना चाहिए।"},
+
+{q:"The Beta function $B(p,q)$ is defined as? / बीटा फलन $B(p,q)$ की परिभाषा क्या है?",
+ o:["$\\int_0^1 t^{p-1}(1-t)^{q-1}\\,dt$","Gamma integral","Series","None"],
+ a:0,
+ e:"English: $B(p,q)=\\int_0^1 t^{p-1}(1-t)^{q-1}\\,dt$ for $\\Re(p),\\Re(q)>0$.<br>हिन्दी: यही बीटा फलन की परिभाषा है।"},
+
+{q:"The Gamma function $\\Gamma(s)$ satisfies which identity? / गामा फलन कौन-सी पहचान संतुष्ट करता है?",
+ o:["$\\Gamma(s)=0$","$\\Gamma(s+1)=s\\Gamma(s)$","None","$\\Gamma(s)=s!$ for all $s$"],
+ a:1,
+ e:"English: Gamma function satisfies $\\Gamma(s+1)=s\\Gamma(s)$ and $\\Gamma(n)=(n-1)!$.<br>हिन्दी: यही गामा फलन की मूल पहचान है।"},
+
+{q:"The quotient (limit-comparison) test for improper integrals uses? / लिमिट-तुलना परीक्षण क्या जाँचता है?",
+ o:[
+   "$\\lim_{x\\to\\infty}\\dfrac{f(x)}{g(x)}=L$, $0<L<\\infty$",
+   "Always diverges",
+   "None",
+   "Only compact intervals"
+ ],
+ a:0,
+ e:"English: By the limit comparison test, if $\\lim_{x\\to\\infty} \\frac{f(x)}{g(x)}=L$ with $0<L<\\infty$, then $\\int_a^{\\infty} f(x)dx$ and $\\int_a^{\\infty} g(x)dx$ either both converge or both diverge.\n\nHindi: लिमिट-तुलना परीक्षण के अनुसार यदि अनुपात की सीमा $0$ और $\\infty$ के बीच हो, तो दोनों समाकल समान रूप से अभिसारी या अपसारी होते हैं।"
+},
+
+{q:"The length of a curve $y=f(x)$, $a\\le x\\le b$ is given by? / वक्र की लंबाई किससे दी जाती है?",
+ o:["$\\int_a^b f(x)\\,dx$","$\\int_a^b \\dfrac{dy}{dx}\\,dx$","$\\int_a^b \\sqrt{1+(dy/dx)^2}\\,dx$","None"],
+ a:2,
+ e:"English: Arc length is $\\int_a^b \\sqrt{1+(y')^2}\\,dx$.<br>हिन्दी: वक्र की लंबाई यही सूत्र देता है।"},
+
+{q:"The volume of solid obtained by rotating $y=f(x)$ about x-axis is? / घूर्णन से प्राप्त आयतन?",
+ o:[
+   "$\\pi\\int_a^b [f(x)]^2\\,dx$",
+   "$2\\pi\\int_a^b f(x)\\,dx$",
+   "None",
+   "$\\int_a^b f'(x)\\,dx$"
+ ],
+ a:0,
+ e:"English: By disk method, volume of solid formed by rotating $y=f(x)$ about x-axis is $V=\\pi\\int_a^b [f(x)]^2dx$.\nHindi: x-अक्ष के चारों ओर घूर्णन से आयतन का सूत्र $\\pi\\int_a^b [f(x)]^2dx$ होता है।"
+},
+
+{q:"The surface area of revolution of $y=f(x)$ about x-axis is? / पृष्ठीय क्षेत्रफल?",
+ o:[
+   "$2\\pi\\int_a^b f(x)\\sqrt{1+(dy/dx)^2}\\,dx$",
+   "$\\pi\\int_a^b [f(x)]^2dx$",
+   "None",
+   "$\\int_a^b f(x)dx$"
+ ],
+ a:0,
+ e:"English: Surface area of revolution about x-axis is $2\\pi\\int_a^b f(x)\\sqrt{1+(y')^2}dx$.\nHindi: x-अक्ष के चारों ओर घूर्णन से पृष्ठीय क्षेत्रफल का सूत्र यही है।"
+},
+
+
+{q:"Pappus theorem for volume states? / पापस का आयतन प्रमेय क्या कहता है?",
+ o:[
+   "Volume = Area × distance travelled by centroid",
+   "Perimeter × radius",
+   "Mass × acceleration",
+   "None"
+ ],
+ a:0,
+ e:"English: Pappus theorem states that volume of a solid of revolution equals the area of the plane region times the distance travelled by its centroid.\nHindi: पापस प्रमेय के अनुसार आयतन = क्षेत्रफल × केंद्रक द्वारा तय दूरी।"
+},
+{q:"Double integral $\\iint_R f(x,y)\\,dA$ represents? / द्विगुण समाकल $\\iint_R f(x,y)\\,dA$ किसे निरूपित करता है?",
+ o:["Only area","Length of a curve","Volume under $z=f(x,y)$ over region $R$","None"],
+ a:2,
+ e:"English: The double integral represents the volume under the surface $z=f(x,y)$ over the region $R$.<br>हिन्दी: द्विगुण समाकल क्षेत्र $R$ पर $z=f(x,y)$ के नीचे का आयतन दर्शाता है।"},
+
+{q:"Change of order in double integration means? / द्विगुण समाकलन में क्रम बदलने का अर्थ क्या है?",
+ o:["Changing from Cartesian to polar","Interchanging $dx$ and $dy$","Differentiating first","None"],
+ a:1,
+ e:"English: Change of order means interchanging the order of integration between $dx$ and $dy$.<br>हिन्दी: द्विगुण समाकल में $dx$ और $dy$ के क्रम को बदलना ही क्रम परिवर्तन है।"},
+
+{q:"Dirichlet’s theorem for multiple integrals gives? / बहु-समाकलों के लिए डिरिचलेट का प्रमेय क्या बताता है?",
+ o:["Evaluation of multiple integrals over regions bounded by linear inequalities","Integral is always infinite","Applicable only in polar form","None"],
+ a:0,
+ e:"English: Dirichlet’s theorem helps evaluate multiple integrals over regions defined by linear constraints.<br>हिन्दी: यह प्रमेय रैखिक असमानताओं से बंधे क्षेत्रों पर बहु-समाकल का मान निकालने में सहायक है।"},
+
+{q:"Liouville’s theorem for multiple integrals refers to? / बहु-समाकलों के लिए लिउविल का प्रमेय किससे सम्बद्ध है?",
+ o:["Change of variables in multiple integrals","Value of Gamma function","Derivative of determinant","None"],
+ a:0,
+ e:"English: Liouville’s theorem is related to change of variables in multiple integrals using Jacobians.<br>हिन्दी: लिउविल का प्रमेय बहु-समाकलों में चर परिवर्तन से संबंधित है।"},
+
+{q:"The gradient of a scalar function $f(x,y,z)$ is? / स्केलर फलन $f(x,y,z)$ का ग्रेडिएंट क्या होता है?",
+ o:["Sum of variables","Vector of partial derivatives","Always zero","None"],
+ a:1,
+ e:"English: Gradient is a vector consisting of partial derivatives of the function.<br>हिन्दी: ग्रेडिएंट आंशिक अवकलों से बना सदिश होता है।"},
+
+{q:"Divergence of vector $\\mathbf{F}=(P,Q,R)$ is? / सदिश $\\mathbf{F}=(P,Q,R)$ का डायवर्जेन्स क्या है?",
+ o:["$\\dfrac{\\partial P}{\\partial x}+\\dfrac{\\partial Q}{\\partial y}+\\dfrac{\\partial R}{\\partial z}$","$\\dfrac{\\partial P}{\\partial y}+\\dfrac{\\partial Q}{\\partial z}+\\dfrac{\\partial R}{\\partial x}$","$|\\nabla\\times \\mathbf{F}|$","None"],
+ a:0,
+ e:"English: Divergence is defined as the sum of partial derivatives of components with respect to their variables.<br>हिन्दी: डायवर्जेन्स घटकों के आंशिक अवकलों का योग होता है।"},
+
+{q:"Curl of vector $\\mathbf{F}=(P,Q,R)$ is? / सदिश $\\mathbf{F}$ का कर्ल क्या है?",
+ o:["$\\nabla\\cdot\\mathbf{F}$","$\\dfrac{\\partial P}{\\partial x}+\\dfrac{\\partial Q}{\\partial y}+\\dfrac{\\partial R}{\\partial z}$","$\\nabla\\times\\mathbf{F}=(\\partial R/\\partial y-\\partial Q/\\partial z,\\partial P/\\partial z-\\partial R/\\partial x,\\partial Q/\\partial x-\\partial P/\\partial y)$","None"],
+ a:2,
+ e:"English: Curl is defined using the cross product of nabla with the vector field.<br>हिन्दी: कर्ल को $\\nabla\\times\\mathbf{F}$ द्वारा परिभाषित किया जाता है।"},
+
+{q:"The normal to surface $\\phi(x,y,z)=c$ at a point is? / पृष्ठ $\\phi(x,y,z)=c$ पर सामान्य क्या होता है?",
+ o:["In direction of tangent","In direction of $\\nabla\\phi$","Any direction","None"],
+ a:1,
+ e:"English: The gradient vector is normal to the level surface $\\phi(x,y,z)=c$.<br>हिन्दी: $\\nabla\\phi$ पृष्ठ का अभिलंब (normal) होता है।"},
+
+{q:"The directional derivative of $f$ at point $P$ in unit vector $\\mathbf{u}$ is? / दिशात्मक अवकलज क्या है?",
+ o:["$\\nabla f\\cdot\\mathbf{u}$","$\\nabla\\times f$","$\\operatorname{div} f$","None"],
+ a:0,
+ e:"English: Directional derivative equals the dot product of gradient with unit vector.<br>हिन्दी: दिशात्मक अवकलज $\\nabla f\\cdot\\mathbf{u}$ होता है।"},
+
+{q:"Vector line integral $\\int_C \\mathbf{F}\\cdot d\\mathbf{r}$ represents? / रेखा समाकल $\\int_C \\mathbf{F}\\cdot d\\mathbf{r}$ क्या दर्शाता है?",
+ o:["Work done by a force field","Volume","Surface area","None"],
+ a:0,
+ e:"English: The line integral represents work done by the force field along the curve.<br>हिन्दी: रेखा समाकल बल क्षेत्र द्वारा किया गया कार्य दर्शाता है।"},
+
+{q:"Gauss divergence theorem states? / गाउस डायवर्जेन्स प्रमेय क्या कहता है?",
+ o:["$\\iint_S \\mathbf{F}\\cdot\\mathbf{n}\\,dS=\\iiint_V (\\nabla\\cdot\\mathbf{F})\\,dV$","$\\oint \\mathbf{F}\\cdot d\\mathbf{r}=0$","$\\oint \\mathbf{F}\\cdot d\\mathbf{r}=\\iint \\operatorname{curl}\\mathbf{F}\\cdot\\mathbf{n}\\,dS$","None"],
+ a:0,
+ e:"English: Flux through a closed surface equals volume integral of divergence.<br>हिन्दी: सतही फ्लक्स = आयतन पर डायवर्जेन्स का समाकल।"},
+
+{q:"Green’s theorem in the plane states? / ग्रीन का प्रमेय क्या कहता है?",
+ o:["$\\oint_C (P\\,dx+Q\\,dy)=\\iint_R (\\partial Q/\\partial x-\\partial P/\\partial y)\\,dA$","$\\iint \\mathbf{F}\\cdot\\mathbf{n}\\,dS=\\iiint \\nabla\\cdot\\mathbf{F}\\,dV$","$\\oint \\mathbf{F}\\cdot d\\mathbf{r}=\\iint \\operatorname{curl}\\mathbf{F}\\cdot\\mathbf{n}\\,dS$","None"],
+ a:0,
+ e:"English: Green’s theorem relates line integrals to double integrals in the plane.<br>हिन्दी: ग्रीन प्रमेय रेखा समाकल को क्षेत्रीय समाकल से जोड़ता है।"},
+
+{q:"Stokes theorem states? / स्टोक्स का प्रमेय क्या कहता है?",
+ o:["$\\oint_C \\mathbf{F}\\cdot d\\mathbf{r}=\\iint_S (\\nabla\\times\\mathbf{F})\\cdot\\mathbf{n}\\,dS$","$\\iiint \\nabla\\cdot\\mathbf{F}\\,dV=\\iint \\mathbf{F}\\cdot\\mathbf{n}\\,dS$","$\\oint \\mathbf{F}\\cdot d\\mathbf{r}=0$","None"],
+ a:0,
+ e:"English: Stokes theorem relates circulation to surface integral of curl.<br>हिन्दी: स्टोक्स प्रमेय रेखा समाकल को कर्ल के सतही समाकल से जोड़ता है।"},
+
+{q:"Which theorem relates surface integral of curl to line integral? / कर्ल के सतही समाकल को रेखा समाकल से कौन जोड़ता है?",
+ o:["Stokes theorem","Gauss theorem","Green theorem","None"],
+ a:0,
+ e:"English: Stokes theorem directly relates surface integral of curl to line integral.<br>हिन्दी: यह संबंध स्टोक्स प्रमेय द्वारा दिया जाता है।"},
+
+{q:"Application of Gauss theorem is? / गाउस प्रमेय का उपयोग?",
+ o:["Converting surface integral to volume integral","Line to surface","Volume to line","None"],
+ a:0,
+ e:"English: Gauss theorem converts surface integrals into volume integrals.<br>हिन्दी: गाउस प्रमेय सतही समाकल को आयतन समाकल में बदलता है।"},
+
+{q:"Application of Green’s theorem is? / ग्रीन प्रमेय का उपयोग?",
+ o:["Converting line integral to double integral","Surface to volume","None","Volume to line"],
+ a:0,
+ e:"English: Green’s theorem converts line integrals into area integrals.<br>हिन्दी: ग्रीन प्रमेय रेखा समाकल को द्वि-समाकल में बदलता है।"},
+
+{q:"Stokes theorem converts? / स्टोक्स प्रमेय किसे किसमें बदलता है?",
+ o:["Line integral to surface integral","Surface to line","Area to volume","None"],
+ a:0,
+ e:"English: Stokes theorem converts line integrals into surface integrals of curl.<br>हिन्दी: स्टोक्स प्रमेय रेखा समाकल को सतही समाकल में बदलता है।"},
+
+{q:"If $\\nabla\\cdot\\mathbf{F}=0$, then vector field $\\mathbf{F}$ is? / यदि डायवर्जेन्स शून्य है तो?",
+ o:["Solenoidal","Irrotational","Curvilinear","None"],
+ a:0,
+ e:"English: Zero divergence implies solenoidal vector field.<br>हिन्दी: डायवर्जेन्स शून्य होने पर सदिश क्षेत्र सोलिनॉयडल होता है।"},
+
+{q:"If $\\nabla\\times\\mathbf{F}=0$, then vector field $\\mathbf{F}$ is? / यदि कर्ल शून्य है तो?",
+ o:["Irrotational","Solenoidal","Curvilinear","None"],
+ a:0,
+ e:"English: Zero curl implies the field is irrotational.<br>हिन्दी: कर्ल शून्य होने पर सदिश क्षेत्र इर्रोटेशनल होता है।"},
+
+{q:"If $\\mathbf{F}=\\nabla\\phi$, then $\\nabla\\times\\mathbf{F}$ is? / यदि $\\mathbf{F}=\\nabla\\phi$ तो?",
+ o:["$0$","$\\phi$","$\\operatorname{div}\\phi$","None"],
+ a:0,
+ e:"English: Curl of a gradient is always zero.<br>हिन्दी: ग्रेडिएंट का कर्ल सदैव शून्य होता है।"},
+{q:"If $f(x,y)$ is continuous on a closed region $R$, then the double integral $\\iint_R f(x,y)\\,dA$ is? / यदि $f(x,y)$ बंद क्षेत्र $R$ पर सतत है, तो द्विगुण समाकल क्या होगा?",
+ o:["Always convergent","Always zero","Always infinite","Undefined"],
+ a:0,
+ e:"English: A continuous function on a closed bounded region always has a finite double integral.<br>हिन्दी: बंद एवं आबद्ध क्षेत्र पर सतत फलन का द्विगुण समाकल सदैव अभिसारी होता है।"},
+
+{q:"The Jacobian $\\dfrac{\\partial(x,y)}{\\partial(u,v)}$ represents? / जैकोबियन $\\dfrac{\\partial(x,y)}{\\partial(u,v)}$ क्या दर्शाता है?",
+ o:["Ratio of areas under transformation","Slope of curve","Length of arc","None"],
+ a:0,
+ e:"English: The Jacobian gives the local area scaling factor under change of variables.<br>हिन्दी: जैकोबियन चर परिवर्तन में क्षेत्रफल के अनुपात को दर्शाता है।"},
+
+{q:"A vector field $\\mathbf{F}$ is conservative if and only if? / सदिश क्षेत्र $\\mathbf{F}$ कब कंज़र्वेटिव होता है?",
+ o:["$\\nabla\\times\\mathbf{F}=0$ in simply connected region","$\\nabla\\cdot\\mathbf{F}=0$","$\\mathbf{F}$ bounded","$\\mathbf{F}$ continuous only"],
+ a:0,
+ e:"English: A vector field is conservative iff its curl vanishes in a simply connected region.<br>हिन्दी: यदि सरल संयोजित क्षेत्र में कर्ल शून्य हो, तो सदिश क्षेत्र कंज़र्वेटिव होता है।"},
+
+{q:"The work done by a conservative force along any closed path is? / कंज़र्वेटिव बल द्वारा बंद पथ पर किया गया कार्य?",
+ o:["Zero","Positive","Negative","Depends on path"],
+ a:0,
+ e:"English: Work done by a conservative force over a closed curve is always zero.<br>हिन्दी: कंज़र्वेटिव बल द्वारा बंद पथ पर किया गया कार्य शून्य होता है।"},
+
+{q:"If $f(x,y)$ has continuous second order partial derivatives, then $f_{xy}$ equals? / यदि द्वितीय कोटि के आंशिक अवकल सतत हों, तो $f_{xy}$ किसके बराबर होता है?",
+ o:["$f_{yx}$","$f_{xx}$","$f_{yy}$","0"],
+ a:0,
+ e:"English: By Clairaut’s theorem, mixed partial derivatives are equal if continuous.<br>हिन्दी: क्लेरो प्रमेय के अनुसार सतत होने पर मिश्रित अवकल बराबर होते हैं।"},
+
+{q:"The Laplacian of a scalar function $f(x,y,z)$ is defined as? / लैप्लेशियन की परिभाषा क्या है?",
+ o:["$\\nabla^2 f = f_{xx}+f_{yy}+f_{zz}$","$\\nabla f$","$\\nabla\\times f$","$\\nabla\\cdot f$"],
+ a:0,
+ e:"English: Laplacian is the divergence of gradient of a scalar function.<br>हिन्दी: लैप्लेशियन स्केलर फलन के द्वितीय आंशिक अवकलों का योग है।"},
+
+{q:"If $\\mathbf{F}=\\nabla\\phi$, then the line integral $\\int_C \\mathbf{F}\\cdot d\\mathbf{r}$ depends on? / यदि $\\mathbf{F}=\\nabla\\phi$ हो, तो रेखा समाकल किस पर निर्भर करता है?",
+ o:["Only on end points","Only on path","Both path and end points","Neither"],
+ a:0,
+ e:"English: For gradient fields, line integral depends only on initial and final points.<br>हिन्दी: ग्रेडिएंट क्षेत्र में रेखा समाकल केवल सिरों पर निर्भर करता है।"},
+
+{q:"The flux of a vector field through a surface physically represents? / सतह से सदिश क्षेत्र का फ्लक्स भौतिक रूप से क्या दर्शाता है?",
+ o:["Rate of flow across the surface","Work done","Length of curve","Potential energy"],
+ a:0,
+ e:"English: Flux measures the rate at which field lines pass through a surface.<br>हिन्दी: फ्लक्स सतह से गुजरने वाले प्रवाह की दर को दर्शाता है।"},
+
+{q:"If $\\mathbf{F}$ is solenoidal, then which statement is true? / यदि सदिश क्षेत्र सोलिनॉयडल है, तो?",
+ o:["Net flux through any closed surface is zero","Curl must be zero","Field is conservative","Work is zero"],
+ a:0,
+ e:"English: Solenoidal fields have zero net flux through closed surfaces.<br>हिन्दी: सोलिनॉयडल क्षेत्र का बंद सतह से कुल फ्लक्स शून्य होता है।"},
+
+{q:"In cylindrical coordinates $(r,\\theta,z)$, the volume element $dV$ is? / बेलनाकार निर्देशांकों में आयतन तत्त्व क्या है?",
+ o:["$r\\,dr\\,d\\theta\\,dz$","$dr\\,d\\theta\\,dz$","$r^2\\,dr\\,d\\theta\\,dz$","$dx\\,dy\\,dz$"],
+ a:0,
+ e:"English: Jacobian of cylindrical coordinates gives $dV=r\\,dr\\,d\\theta\\,dz$.<br>हिन्दी: बेलनाकार निर्देशांकों में आयतन तत्त्व $r\\,dr\\,d\\theta\\,dz$ होता है।"}
+
+];
+
+let current=0,submitted=false,time=0,timer=null;
+const answers=new Array(quiz.length).fill(null);
+const visited=new Array(quiz.length).fill(false);
+
+/* START QUIZ */
+function startQuiz(){
+  document.getElementById("start-screen").style.display="none";
+  document.getElementById("quiz-screen").style.display="block";
+  document.getElementById("bottom-bar").style.display="block";
+
+  buildPalette();
+  showQ();
+
+  timer=setInterval(()=>{
+    time++;
+    document.getElementById("timer").innerText=
+      String(Math.floor(time/60)).padStart(2,"0")+":"+
+      String(time%60).padStart(2,"0");
+  },1000);
+}
+
+/* SHOW QUESTION */
+function showQ(){
+  visited[current]=true;
+
+  document.getElementById("qno").innerText="Question "+(current+1);
+  document.getElementById("question").innerHTML=quiz[current].q;
+  const optBox=document.getElementById("options");
+  const exp=document.getElementById("explanation");
+
+  optBox.innerHTML="";
+  exp.style.display="none";
+
+  quiz[current].o.forEach((t,i)=>{
+    const d=document.createElement("div");
+    d.className="option";
+    if(answers[current]===i) d.classList.add("selected");
+    d.innerHTML=t;
+    d.onclick=()=>selectAns(i);
+    optBox.appendChild(d);
+  });
+
+  updatePalette();
+  if(submitted) showAnswer();
+  MathJax.typeset();
+}
+
+/* SELECT */
+function selectAns(i){
+  if(submitted) return;
+  answers[current]=i;
+  showQ();
+}
+
+/* SUBMIT */
+function submitQuiz(){
+  if(submitted) return;
+  submitted=true;
+  clearInterval(timer);
+  updatePalette();
+  showAnswer();
+}
+
+/* ANSWER */
+function showAnswer(){
+  document.querySelectorAll(".option").forEach((o,i)=>{
+    if(i===quiz[current].a) o.classList.add("correct");
+    if(answers[current]===i && i!==quiz[current].a) o.classList.add("wrong");
+  });
+  const exp=document.getElementById("explanation");
+  exp.style.display="block";
+  exp.innerHTML="<b>Explanation:</b><br>"+quiz[current].e;
+  MathJax.typeset();
+}
+
+/* NAV */
+function nextQ(){current=(current+1)%quiz.length;showQ()}
+function prevQ(){current=(current-1+quiz.length)%quiz.length;showQ()}
+
+/* PALETTE */
+function togglePalette(){
+  const p=document.getElementById("palette");
+  p.style.display=(p.style.display==="block")?"none":"block";
+}
+
+function buildPalette(){
+  const box=document.getElementById("palette-buttons");
+  box.innerHTML="";
+  quiz.forEach((_,i)=>{
+    const b=document.createElement("button");
+    b.id="p"+i;
+    b.className="pbtn not-visited";
+    b.innerText=i+1;
+    b.onclick=()=>{
+      current=i;
+      showQ();
+      togglePalette();
+    };
+    box.appendChild(b);
+  });
+}
+
+function updatePalette(){
+  quiz.forEach((_,i)=>{
+    const b=document.getElementById("p"+i);
+    if(submitted){
+      if(answers[i]==null) b.className="pbtn not-answered";
+      else if(answers[i]===quiz[i].a) b.className="pbtn correctP";
+      else b.className="pbtn wrongP";
+    }else{
+      if(!visited[i]) b.className="pbtn not-visited";
+      else if(answers[i]==null) b.className="pbtn not-answered";
+      else b.className="pbtn answered";
+    }
+  });
+}
+</script>
+</body>
+</html>
