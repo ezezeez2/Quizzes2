@@ -116,6 +116,28 @@ body{
 
 #explanation{display:none;margin-top:10px;font-size:13px;color:var(--muted)}
 
+  
+/* ---------- NAV BUTTONS (PERMANENT LIGHT BLUE) ---------- */
+.nav-btn{
+  background: rgba(96,165,250,0.22);      /* permanent light blue */
+  border: 1px solid rgba(96,165,250,0.45);
+  color: #bfdbfe;                         /* soft blue text */
+  font-weight: 700;
+  transition: background 0.2s ease,
+              transform 0.15s ease;
+}
+
+/* hover = slightly darker */
+.nav-btn:hover{
+  background: rgba(96,165,250,0.35);
+  transform: translateY(-2px);
+}
+
+/* optional: active click feel */
+.nav-btn:active{
+  transform: translateY(0);
+}
+
 /* ---------- OVERVIEW KEY ---------- */
 .palette-key{
   display:grid;
@@ -228,21 +250,28 @@ body{
 </div>
 
 <!-- BOTTOM BAR -->
-<div id="bottom-bar" style="display:none;">
+<div id="bottom-bar">
+
   <div class="nav">
-    <button class="btn ghost" onclick="prevQ()">Previous</button>
-    <button class="btn ghost" onclick="nextQ()">Next</button>
+    <button class="btn ghost nav-btn" onclick="prevQ()">⬅️ Previous</button>
+    <button class="btn ghost nav-btn" onclick="nextQ()">Next ➡️</button>
   </div>
-  <button id="submitBtn" onclick="submitQuiz()">Submit</button>
+
   <div class="credit">
-    <div>@CCSUniversityMRT</div>
+    <div>Brought to you by <b>@CCSUniversityMRT</b></div>
     <div class="links">
       <a class="telegram" href="https://t.me/CCSUniversityMRT">Telegram</a>
       <a class="instagram" href="https://www.instagram.com/universityupdates_uu/">Instagram</a>
       <a class="youtube" href="https://www.youtube.com/@University-Updates-UU">YouTube</a>
     </div>
   </div>
+
+  <!-- SUBMIT BUTTON MOVED HERE -->
+  <button id="submitBtn" onclick="submitQuiz()">Submit</button>
+
 </div>
+
+
 
 <div id="palette">
   <div style="display:flex;justify-content:space-between;align-items:center">
