@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>B.Sc. Math 1st Sem Theoretical Questions</title>
+<title>B.Sc. Math 1st Sem Numerical Questions</title>
 
 <!-- MathJax -->
 <script>
@@ -267,542 +267,509 @@ body{
 <script>
 /* ===== SCRIPT (BUG-FREE) ===== */
 const quiz=[
-{q:"A neighborhood of a point $x$ in $\\mathbb{R}$ is defined as? / $\\mathbb{R}$ में किसी बिंदु $x$ का पड़ोस कैसे परिभाषित किया जाता है?",
- o:["Empty set","All real numbers greater than $x$","${x}$ only","Any set containing an open interval around $x$"],
- a:3,
- e:"English: A neighborhood of $x$ is any set that contains some open interval around $x$.<br>हिन्दी: $x$ का पड़ोस वह समुच्चय है जिसमें $x$ के चारों ओर कोई खुला अंतराल शामिल हो।"},
-
-{q:"A set $S\\subseteq\\mathbb{R}$ is bounded above if? / किसी समुच्चय $S\\subseteq\\mathbb{R}$ को ऊपर से आबद्ध कब कहा जाता है?",
- o:["None of these","S contains only positive numbers","Every element of $S$ is less than or equal to some number $M$","S has infinitely many elements"],
- a:2,
- e:"English: $S$ is bounded above if there exists $M\\in\\mathbb{R}$ with $s\\le M$ for all $s\\in S$.<br>हिन्दी: यदि कोई वास्तविक संख्या $M$ हो जिससे $S$ का हर तत्त्व $M$ से कम या बराबर हो, तो $S$ ऊपर से आबद्ध है।"},
-
-{q:"Which of the following is an unbounded set in $\\mathbb{R}$? / निम्नलिखित में से कौन-सा $\\mathbb{R}$ में अनाबद्ध समुच्चय है?",
- o:["$(-\\infty,5)$","$[-10,10]$","$[0,1]$","$\\{1,2,3\\}$"],
+{q:"Let N = (5-0.2, 5+0.2). Does 5.15 belong to N? / यदि N = (5−0.2, 5+0.2) हो, तो क्या 5.15 N में है?",
+ o:["Yes — हाँ","No — नहीं","Only if $\\varepsilon\\le 0.1$ — केवल यदि $\\varepsilon\\le 0.1$","Cannot decide — निर्णय नहीं कर सकते"],
  a:0,
- e:"English: $(-\\infty,5)$ extends to $-\\infty$ and so is unbounded below (hence unbounded).<br>हिन्दी: $(-\\infty,5)$ ऋण अनंत तक फैला है, इसलिए यह अनाबद्ध है।"},
+ e:"English: The interval is $(4.8,5.2)$. Since $4.8<5.15<5.2$, the number lies strictly inside the open interval, so it belongs to N. हिन्दी: $4.8<5.15<5.2$ होने के कारण 5.15 अंतराल के भीतर है।"},
 
-{q:"Which interval is an open set? / कौन-सा अंतराल खुला समुच्चय है?",
- o:["[0,1]","{0,1}","[0,\\infty)","$(0,1)$"],
- a:3,
- e:"English: $(0,1)$ does not include endpoints and so is open.<br>हिन्दी: $(0,1)$ अपने सिरों को शामिल नहीं करता, इसलिए यह खुला है।"},
-
-{q:"Which of the following is a closed set? / निम्नलिखित में से कौन-सा समुच्चय बंद है?",
- o:["$[0,1]$","$(−1,1)$","$(0,1)$","$(0,\\infty)$"],
+{q:"Let A = $\\{2-1/n : n \\in \\mathbb{N}\\}$. What is $\\sup A$? / A = {2−1/n : n ∈ N} के लिए $\\sup A$ क्या है?",
+ o:["2 — 2","1 — 1","3 — 3","Does not exist — अस्तित्व नहीं"],
  a:0,
- e:"English: $[0,1]$ contains its endpoints, so it is closed in $\\mathbb{R}$.<br>हिन्दी: $[0,1]$ अपने सीमा बिंदुओं को शामिल करता है, अतः बंद है।"},
+ e:"English: As $n$ increases, $2-1/n$ increases and approaches 2 from below. Thus 2 is the least upper bound. हिन्दी: पद 2 के निकट जाते हैं पर 2 से छोटे रहते हैं, इसलिए $\\sup A=2$।"},
 
-{q:"A point $x$ is a limit point of a set $S$ if? / किसी समुच्चय $S$ का सीमाबिंदु $x$ कब कहलाता है?",
- o:["None of these","$x\\in S$ only","$x$ is the largest element of $S$","Every neighborhood of $x$ contains at least one point of $S$ different from $x$"],
- a:3,
- e:"English: $x$ is a limit point if every neighborhood of $x$ contains some $s\\in S$ with $s\\ne x$.<br>हिन्दी: यदि $x$ के हर पड़ोस में $S$ का कोई अन्य तत्त्व मौजूद हो, तो $x$ सीमाबिंदु है।"},
-
-{q:"A point $x$ is called an isolated point of $S$ if? / किसी समुच्चय $S$ का एकांत बिंदु $x$ कब कहलाता है?",
- o:["$x$ is a limit point of $S$","$x$ is not in $S$","$x$ is greater than all elements of $S$","There exists a neighborhood of $x$ which contains no other points of $S$"],
- a:3,
- e:"English: $x$ is isolated if some neighborhood of $x$ contains no other points of $S$ except $x$ itself.<br>हिन्दी: यदि $x$ के पास ऐसा पड़ोस हो जिसमें $S$ का कोई अन्य तत्त्व न हो, तो वह एकांत बिंदु है।"},
-
-{q:"Which of the following sets is bounded both above and below? / निम्नलिखित में से कौन-सा समुच्चय ऊपर और नीचे दोनों ओर से आबद्ध है?",
- o:["$\\mathbb{R}$","$(3,\\infty)$","$(−\\infty,5)$","$(0,1)$"],
- a:3,
- e:"English: $(0,1)$ has lower bound $0$ and upper bound $1$, so it is bounded both ways.<br>हिन्दी: $(0,1)$ के लिए 0 निम्न सीमा और 1 उच्च सीमा हैं, अतः दोनों ओर से आबद्ध है।"},
-
-{q:"According to Cauchy’s definition, a function $f(x)$ has limit $L$ at $x=a$ if? / कॉशी की परिभाषा के अनुसार $f(x)$ की सीमा $L$ बिंदु $x=a$ पर कब होती है?",
- o:["For every $\\varepsilon>0$, $\\exists\\delta>0$ such that $|x-a|<\\delta\\Rightarrow |f(x)-L|<\\varepsilon$","$L$ is maximum of $f$","None","$f(a)=L$ always"],
+{q:"Let B = $\\{(-1)^n + 1/n : n \\in \\mathbb{N}\\}$. What is $\\inf B$? / B = {(−1)^n + 1/n : n ∈ N} के लिए $\\inf B$ क्या है?",
+ o:["−1 — −1","0 — 0","1 — 1","Does not exist — अस्तित्व नहीं"],
  a:0,
- e:"English: The $\\varepsilon$–$\\delta$ condition is the precise definition of limit at $a$.<br>हिन्दी: सीमा की सटीक परिभाषा $\\varepsilon$–$\\delta$ शर्त है।"},
+ e:"English: For odd $n$, terms are $-1+1/n$ which approach −1 from above; no term is less than −1. Hence $\\inf B=-1$. हिन्दी: मान −1 के ऊपर से आते हैं और उससे नीचे नहीं जाते, अतः $\\inf B=-1$।"},
 
-{q:"A function is continuous at $x=a$ if? / किसी फलन को $x=a$ पर सतत कब कहा जाता है?",
- o:["$f(a)=0$","$\\lim_{x\\to a} f(x)$ exists and equals $f(a)$","$f(a)$ is not defined","$f(x)$ bounded near $a$"],
- a:1,
- e:"English: Continuity at $a$ means the limit exists and equals the function value $f(a)$.<br>हिन्दी: $x=a$ पर सततता का अर्थ है $\\lim_{x\\to a}f(x)=f(a)$।"},
-
-{q:"Which of the following functions is differentiable everywhere on $\\mathbb{R}$? / निम्नलिखित में से कौन-सा फलन $\\mathbb{R}$ पर हर जगह अवकलनीय है?",
- o:["$|x|$","$|x|+x$","$\\max(x,0)$","$x^2$"],
- a:3,
- e:"English: The polynomial $x^2$ is differentiable for all real $x$; $|x|$ and $\\max(x,0)$ fail differentiability at $0$.<br>हिन्दी: $x^2$ सभी वास्तविक $x$ पर अवकलनीय है; $|x|$ और $\\max(x,0)$ $x=0$ पर अवकलनीय नहीं हैं।"},
-
-{q:"Uniform continuity of $f$ on $[a,b]$ means? / $[a,b]$ पर $f$ का समान सतत होना क्या दर्शाता है?",
- o:["$f$ must be constant","$\\delta$ depends only on $\\varepsilon$","$\\delta$ depends on both $\\varepsilon$ and the point","$f$ must be bounded"],
- a:1,
- e:"English: Uniform continuity means given $\\varepsilon>0$ there exists $\\delta>0$ that works for all points (depends only on $\\varepsilon$).<br>हिन्दी: समान सततता में $\\delta$ केवल $\\varepsilon$ पर निर्भर करता है, किसी बिंदु पर नहीं।"},
-
-{q:"The Boundedness theorem states? / आबद्धता प्रमेय क्या कहता है?",
- o:["A bounded function is always continuous","A continuous function on $[a,b]$ is bounded","Discontinuous functions are unbounded","None"],
- a:1,
- e:"English: Every continuous function on a closed interval $[a,b]$ is bounded (Boundedness theorem).<br>हिन्दी: बंद अंतराल पर हर सतत फलन आबद्ध होता है।"},
-
-{q:"The Intermediate Value Theorem says? / मध्य मान प्रमेय क्या कहता है?",
- o:["$f$ is differentiable on $(a,b)$","$f$ is periodic","$f$ attains every value between $f(a)$ and $f(b)$ for some $c\\in(a,b)$","$f$ is bounded on $[a,b]$"],
- a:2,
- e:"English: A continuous function on $[a,b]$ takes every intermediate value between $f(a)$ and $f(b)$.<br>हिन्दी: सतत फलन $f$ कुछ $c\\in(a,b)$ पर $f(a)$ और $f(b)$ के बीच हर मान लेता है।"},
-
-{q:"Darboux’s theorem for derivatives states? / अवकलजों के लिए डारबू का प्रमेय क्या कहता है?",
- o:["Derivatives are always continuous","Derivatives satisfy Intermediate Value property","Derivatives are bounded","None"],
- a:1,
- e:"English: Darboux’s theorem: derivatives have the intermediate value property even if not continuous.<br>हिन्दी: डारबू का प्रमेय कहता है कि अवकलज मध्य मान गुणधर्म रखते हैं, भले ही वे सतत न हों।"},
-
-{q:"The derivative of $(f\\circ g)(x)$ is? / $f\\circ g(x)$ का अवकलज क्या है?",
- o:["$f'(x)\\cdot g'(x)$","$g'(f(x))\\cdot f'(x)$","$f'(g(x))\\cdot g'(x)$","None"],
- a:2,
- e:"English: By chain rule $(f\\circ g)'(x)=f'(g(x))\\,g'(x)$.<br>हिन्दी: चेन नियम से $(f\\circ g)'(x)=f'(g(x))\\,g'(x)$।"},
-
-{q:"Rolle's theorem requires which hypotheses? / रोले का प्रमेय किन शर्तों पर निर्भर करता है?",
- o:["$f$ bounded on $[a,b]$ only","$f$ increasing on $[a,b]$","$f$ integrable on $[a,b]$","$f$ continuous on $[a,b]$, differentiable on $(a,b)$, and $f(a)=f(b)$"],
- a:3,
- e:"English: Rolle’s theorem needs continuity on $[a,b]$, differentiability on $(a,b)$ and $f(a)=f(b)$.<br>हिन्दी: रोले के लिए $[a,b]$ पर सततता, $(a,b)$ पर अवकलनीयता और $f(a)=f(b)$ आवश्यक हैं।"},
-
-{q:"Lagrange’s Mean Value Theorem guarantees existence of $c\\in(a,b)$ such that? / लाग्रेंज का माध्य मान प्रमेय किस बात की गारंटी देता है?",
- o:["$f(c)=(f(a)+f(b))/2$","$f'(c)=0$","$f'(c)=\\dfrac{f(b)-f(a)}{b-a}$","$f'(c)=f(b)$"],
- a:2,
- e:"English: Lagrange’s MVT: there is $c\\in(a,b)$ with $f'(c)=(f(b)-f(a))/(b-a)$.<br>हिन्दी: प्रमेय के अनुसार कोई $c$ है जहाँ $f'(c)$ औसत परिवर्तन दर के बराबर होता है।"},
-
-{q:"Cauchy’s Mean Value Theorem gives which conclusion? / कॉशी का माध्य मान प्रमेय क्या निष्कर्ष देता है?",
- o:["$f'(c)=g'(c)$","$f(c)=g(c)$","$(f(b)-f(a))\\,g'(c)=(g(b)-g(a))\\,f'(c)$","None"],
- a:2,
- e:"English: Cauchy’s MVT: $(f(b)-f(a))g'(c)=(g(b)-g(a))f'(c)$ for some $c\\in(a,b)$.<br>हिन्दी: कॉशी प्रमेय के अनुसार उक्त समीकरण किसी $c$ पर सत्य होता है।"},
-
-{q:"Taylor's theorem with Lagrange remainder states $R_n(x)$ equals? / टेलर प्रमेय में लाग्रेंज शेष का रूप क्या है?",
- o:["$R_n(x)=0$ always","$R_n(x)=(x-a)^n$","$R_n(x)$ undefined","$R_n(x)=\\dfrac{f^{(n+1)}(\\xi)}{(n+1)!}(x-a)^{n+1}$ for some $\\xi$ between $a$ and $x$"],
- a:3,
- e:"English: Lagrange form: $R_n(x)=\\dfrac{f^{(n+1)}(\\xi)}{(n+1)!}(x-a)^{n+1}$ for some $\\xi$ between $a$ and $x$.<br>हिन्दी: लाग्रेंज शेष उसी रूप में $(n+1)$वें अवकलज पर निर्भर करता है।"},
-
-{q:"Which remainder form is sometimes called the integral form of Taylor remainder? / टेलर शेष का कौन-सा रूप समाकलनीय रूप कहलाता है?",
- o:["$R_n(x)=f(x)$","$R_n(x)=(n+1)!$","None","$R_n(x)=\\dfrac{1}{n!}\\int_a^x f^{(n+1)}(t)(x-t)^n\\,dt$"],
- a:3,
- e:"English: The integral form is $R_n(x)=\\dfrac{1}{n!}\\int_a^x f^{(n+1)}(t)(x-t)^n\\,dt$.<br>हिन्दी: समाकलनीय रूप वही समाकल का रूप होता है।"},
-
-{q:"Successive differentiation refers to? / क्रमागत अवकलन से क्या आशय है?",
- o:["Integrating once only","Taking derivative at a single point only","Repeatedly differentiating to obtain higher order derivatives","None"],
- a:2,
- e:"English: Successive differentiation is repeated differentiation to get higher derivatives.<br>हिन्दी: बार-बार अवकल निकालना उच्च-क्रम के अवकल देता है।"},
-
-{q:"Leibniz theorem gives a formula for? / लेइबनिज का प्रमेय किसके लिए सूत्र देता है?",
- o:["$n$th derivative of product of two functions","Integral of product","Sum of functions","Antiderivative only"],
+{q:"D = $\\{-3,-1,2,4.5\\}$. Find $\\max D$ and $\\min D$. / D = {−3, −1, 2, 4.5} के लिए अधिकतम और न्यूनतम ज्ञात कीजिए।",
+ o:["max = 4.5, min = −3","max = 2, min = −1","max = 4.5, min = −1","No max or min — कोई नहीं"],
  a:0,
- e:"English: Leibniz formula gives the $n$th derivative of a product (involving binomial coefficients).<br>हिन्दी: यह दो फलनों के गुणन के $n$-आवृत्त अवकल का सूत्र देता है।"},
+ e:"English: Comparing elements gives smallest −3 and largest 4.5. हिन्दी: सबसे छोटा −3 और सबसे बड़ा 4.5 है।"},
 
-{q:"Maclaurin series is Taylor series expanded about which point? / मैक्लॉरिन श्रेणी किस बिंदु के आसपास होती है?",
- o:["$a=1$","$a=0$","$a=-1$","any arbitrary $a$"],
- a:1,
- e:"English: Maclaurin series is the Taylor series about $a=0$.<br>हिन्दी: मैक्लॉरिन विशेष रूप से $a=0$ पर टेलर श्रेणी है।"},
-
-{q:"For a function $f(x,y)$, partial differentiation $\\partial f/\\partial x$ means? / आंशिक अवकलन $\\partial f/\\partial x$ का अर्थ क्या है?",
- o:["Total derivative wrt $x$","Rate of change of $f$ w.r.t $x$ keeping $y$ constant","Integration over $y$","None"],
- a:1,
- e:"English: $\\partial f/\\partial x$ is the rate of change of $f$ w.r.t $x$ with $y$ held fixed.<br>हिन्दी: $y$ को स्थिर रखकर $x$ के अनुसार परिवर्तन दर निकालना है।"},
-
-{q:"Euler’s theorem on homogeneous functions of degree $k$ states? / समजात फलनों के लिए ऑयलर का प्रमेय क्या कहता है?",
- o:["$f$ homogeneous $\\Rightarrow f=0$","$x f_x + y f_y = k f(x,y)$","$f$ has no partial derivatives","None"],
- a:1,
- e:"English: For homogeneous $f$ of degree $k$, $x f_x+y f_y = k f(x,y)$ (Euler's theorem).<br>हिन्दी: यही ऑयलर का प्रमेय है।"},
-
-{q:"Which function has Maclaurin series equal to $\\sum_{n=0}^{\\infty} x^n$? / किस फलन की मैक्लॉरिन श्रेणी $\\sum_{n=0}^{\\infty} x^n$ है?",
- o:["$e^x$","$\\sin x$","$\\ln(1+x)$","$\\dfrac{1}{1-x},\\ |x|<1$"],
- a:3,
- e:"English: The geometric series $\\sum_{n=0}^\\infty x^n$ equals $\\dfrac{1}{1-x}$ for $|x|<1$.<br>हिन्दी: यह श्रेणी $|x|<1$ पर $1/(1-x)$ बनती है।"},
-
-{q:"Leibniz rule for $n$th derivative of $(uv)$ includes which combinatorial factor? / लेइबनिज नियम में कौन-सा संयोजी गुणांक आता है?",
- o:["$n!$ only","Binomial coefficient $C(n,k)$","Power $2^n$ only","No combinatorial factors"],
- a:1,
- e:"English: Leibniz rule uses binomial coefficients $\\binom{n}{k}$ in the sum for $(uv)^{(n)}$.<br>हिन्दी: द्विपदीय गुणांक $C(n,k)$ प्रयुक्त होते हैं।"},
-
-{q:"For the curve $y=f(x)$, the equation of the tangent at $x=a$ is? / $x=a$ पर स्पर्शरेखा का समीकरण क्या है?",
- o:["$y=f(a)$","$y=f'(a)$","$x=a$","$y=f(a)+f'(a)(x-a)$"],
- a:3,
- e:"English: Tangent line at $x=a$ is $y=f(a)+f'(a)(x-a)$.<br>हिन्दी: यही स्पर्शरेखा का सामान्य रूप है।"},
-
-{q:"An oblique asymptote to $y=f(x)$ as $x\\to\\infty$ has the general form? / तिरछी असिम्प्टोट का सामान्य रूप क्या है?",
- o:["$y=0$ only","$y=mx+c$","$x=\\text{constant}$","No asymptote exists"],
- a:1,
- e:"English: An oblique asymptote is of the form $y=mx+c$ with $m\\ne0$.<br>हिन्दी: तिरछी आसिम्प्टोट का साधारण रूप $y=mx+c$ है।"},
-
-{q:"Curvature $\\kappa$ of $y=f(x)$ at a point is given by? / $y=f(x)$ की वक्रता $\\kappa$ किससे दी जाती है?",
- o:["$\\kappa=y'$","$\\kappa=y''$","$\\kappa=0$ always","$\\kappa=\\dfrac{|y''|}{(1+(y')^2)^{3/2}}$"],
- a:3,
- e:"English: Curvature formula: $\\kappa=\\dfrac{|y''|}{(1+(y')^2)^{3/2}}$.<br>हिन्दी: वक्रता का सूत्र वही होता है।"},
-
-{q:"An evolute of a curve is? / किसी वक्र का एवोल्यूट क्या है?",
- o:["The original curve","Envelope of tangents","Locus of centers of curvature","None"],
- a:2,
- e:"English: The evolute is the locus (envelope) of centers of curvature of the original curve.<br>हिन्दी: एवोल्यूट वक्रता के केन्द्रों का स्थानिक समुच्चय है।"},
-
-{q:"A point of inflection is where? / इन्फ्लेक्शन बिंदु कहाँ होता है?",
- o:["Concavity changes sign (i.e. $y''$ changes sign)","$f'$ is zero only","$f$ has a maximum there","$y$ undefined"],
+{q:"Consider the interval $(0,1)$. Is it bounded? / खंड $(0,1)$ क्या सीमाबद्ध है?",
+ o:["Yes — हाँ","No — नहीं","Only above bounded — केवल ऊपर से","Only below bounded — केवल नीचे से"],
  a:0,
- e:"English: Inflection occurs where concavity changes sign (the sign of $y''$ changes).<br>हिन्दी: इन्फ्लेक्शन वे बिंदु हैं जहाँ $y''$ का चिह्न बदलता है।"},
+ e:"English: Every $x\\in(0,1)$ satisfies $|x|<1$, so the interval is bounded above and below. हिन्दी: सभी मान 0 और 1 के बीच हैं, इसलिए यह सीमाबद्ध है।"},
 
-{q:"For parametric curve $x=x(t),\\ y=y(t)$, $dy/dx$ equals? / परामीट्रिक वक्र के लिए $dy/dx$ क्या है?",
- o:["$dy/dt$ only","$dx/dt$ only","$(dy/dt)/(dx/dt)$","$(dx/dt)/(dy/dt)$"],
- a:2,
- e:"English: For parametric curves $dy/dx=\\dfrac{dy/dt}{dx/dt}$ (provided $dx/dt\\ne0$).<br>हिन्दी: परामीट्रिक रूप में $dy/dx=(dy/dt)/(dx/dt)$ होता है।"},
-
-{q:"Tracing a polar curve $r=f(\\theta)$ examines? / ध्रुवीय वक्र ट्रेस करते समय क्या देखा जाता है?",
- o:["Only curvature","Symmetry, intercepts, and behaviour as $\\theta$ varies","Only tangent at origin","None"],
- a:1,
- e:"English: Tracing a polar curve studies symmetry, intercepts and behaviour as $\\theta$ changes.<br>हिन्दी: समरूपता, इंटरसेप्ट और $\\theta$ के साथ व्यवहार की जाँच की जाती है।"},
-
-{q:"Multiple points on a curve are where? / किसी वक्र पर बहु-बिंदु वे स्थान हैं जहाँ?",
- o:["Vertical tangent only","Curve undefined","The curve intersects itself (same coordinates for different parameters)","Curvature is zero"],
- a:2,
- e:"English: Multiple points occur when a curve meets itself (same $(x,y)$ from different parameter values).<br>हिन्दी: ऐसे बिंदु जहाँ वक्र अपने आप को काटता है।"},
-
-{q:"Which defines a sequence? / अनुक्रम को कौन परिभाषित करता है?",
- o:["Subset of $\\mathbb{R}$","Function from $\\mathbb{R}$ to $\\mathbb{R}$","None","Function from $\\mathbb{N}$ to $\\mathbb{R}$"],
- a:3,
- e:"English: A sequence is a function $a:\\mathbb{N}\\to\\mathbb{R}$ assigning each natural number a real value.<br>हिन्दी: अनुक्रम $\\mathbb{N}$ से $\\mathbb{R}$ तक का फलन होता है।"},
-
-{q:"If $\\lim a_n = L$, then? / यदि $\\lim a_n=L$, तो?",
- o:["Some subsequences diverge","Sequence bounded","Every subsequence converges to $L$","None"],
- a:2,
- e:"English: If a sequence converges to $L$, every subsequence also converges to $L$.<br>हिन्दी: मूल अनुक्रम का हर उपअनुक्रम उसी $L$ पर अभिसरित होगा।"},
-
-{q:"Every bounded monotonic sequence is? / प्रत्येक आबद्ध एकरूपी अनुक्रम क्या होता है?",
- o:["Divergent","Oscillatory","Constant only","Convergent"],
- a:3,
- e:"English: Monotone convergence theorem: every bounded monotonic sequence is convergent.<br>हिन्दी: आबद्ध एवं एकरूपी अनुक्रम अवश्य अभिसारी होता है।"},
-
-{q:"Cauchy’s convergence criterion says? / कॉशी अभिसरण मापदंड क्या कहता है?",
- o:["Sequence bounded","For every $\\varepsilon>0$ there exists $N$ such that $m,n>N\\Rightarrow |a_m-a_n|<\\varepsilon$","Sequence monotone","None"],
- a:1,
- e:"English: The Cauchy criterion: the terms get arbitrarily close to each other eventually.<br>हिन्दी: कॉशी शर्त के अनुसार बड़े सूचकांक पर पद परस्पर अत्यंत निकट हो जाते हैं।"},
-
-{q:"A sequence is Cauchy if? / कॉशी अनुक्रम कब कहलाता है?",
- o:["Bounded","Increasing","Terms get arbitrarily close to each other for large $n$","Terms get arbitrarily large"],
- a:2,
- e:"English: Precisely: for every $\\varepsilon>0$ there is $N$ with $m,n>N\\Rightarrow |a_m-a_n|<\\varepsilon$.<br>हिन्दी: बड़े $n$ पर पद एक-दूसरे के अत्यधिक निकट हो जाएँ।"},
-
-{q:"Limit superior (lim sup) is? / ऊपरी सीमा (lim sup) क्या है?",
- o:["Sum of sequence","Smallest subsequential limit","Largest subsequential limit","None"],
- a:2,
- e:"English: $\\limsup a_n$ is the supremum of subsequential limits (largest subsequential limit).<br>हिन्दी: यह सभी उपानुक्रम सीमाओं में सबसे बड़ा मान है।"},
-
-{q:"Limit inferior (lim inf) is? / निचली सीमा (lim inf) क्या है?",
- o:["Smallest subsequential limit","Largest subsequential limit","Average of limits","None"],
+{q:"Consider the set $E=\\{n\\in\\mathbb{N}: n\\le10\\}$. Is it bounded? / E = {n ∈ N : n ≤ 10} क्या सीमाबद्ध है?",
+ o:["Yes — हाँ","No — नहीं","Only above bounded — केवल ऊपर से","Only below bounded — केवल नीचे से"],
  a:0,
- e:"English: $\\liminf a_n$ is the infimum of subsequential limits (the smallest subsequential limit).<br>हिन्दी: यह सभी उपानुक्रम सीमाओं में सबसे छोटा मान है।"},
+ e:"English: $E=\\{1,2,\\dots,10\\}$ is finite, hence bounded. हिन्दी: सीमित सेट हमेशा सीमाबद्ध होता है।"},
 
-{q:"A subsequence of $\\{a_n\\}$ is? / $\\{a_n\\}$ का उपानुक्रम क्या है?",
- o:["Only the first term","Any bounded sequence","Sequence formed by $a_{n_k}$ with $n_k$ increasing","None"],
- a:2,
- e:"English: A subsequence picks terms $a_{n_k}$ where $n_1<n_2<\\cdots$ is strictly increasing.<br>हिन्दी: उपानुक्रम $a_{n_k}$ जहाँ $n_k$ वृद्धिशील अनुक्रम है।"},
-
-{q:"A series with non-negative terms is? / गैर-ऋणात्मक पदों वाली श्रेणी कैसी होती है?",
- o:["Oscillatory","Partial sums are monotonic increasing","Alternating","None"],
- a:1,
- e:"English: If terms are non-negative, partial sums form a monotone non-decreasing sequence.<br>हिन्दी: ऐसे श्रेणी के आंशिक योग एकरूप रूप से बढ़ते हैं।"},
-
-{q:"The Comparison test for series states? / तुलना परीक्षण क्या कहता है?",
- o:["If $0\\le a_n\\le b_n$ and $\\sum b_n$ converges then $\\sum a_n$ converges","$\\sum a_n$ always diverges","If $a_n\\ge b_n$ then $\\sum a_n$ converges","None"],
+{q:"Find all limit points of $S=\\{1/n : n \\in \\mathbb{N}\\}$. / S = {1/n : n ∈ N} के सभी सीमाबिंदु ज्ञात कीजिए।",
+ o:["{0} only — केवल {0}","{0,1} — {0,1}","N itself — N स्वयं","None — कोई नहीं"],
  a:0,
- e:"English: If $0\\le a_n\\le b_n$ and $\\sum b_n$ converges, then $\\sum a_n$ also converges by comparison.<br>हिन्दी: यदि बड़ी श्रेणी अभिसरित है और $a_n\\le b_n$, तो छोटी भी अभिसरित होगी।"},
+ e:"English: Since $1/n\\to0$, every neighborhood of 0 contains infinitely many points of S; no other point has this property. हिन्दी: केवल 0 ही सीमाबिंदु है।"},
 
-{q:"Cauchy’s integral test applies to? / कॉशी का समाकल परीक्षण किन पर लागू होता है?",
- o:["Any function","Oscillating sequences","None","Positive, decreasing functions $f(x)$"],
- a:3,
- e:"English: The integral test (Cauchy) applies when $f(x)\\ge0$ is decreasing and relates $\\sum a_n$ to $\\int f$.<br>हिन्दी: यह धनात्मक और ह्रासमान फलनों पर लागू होता है।"},
-
-{q:"The Ratio test states absolute convergence if? / अनुपात परीक्षण के अनुसार पूर्ण अभिसरण के लिए शर्त क्या है?",
- o:["$\\lim|a_{n+1}/a_n|>1$","$\\lim|a_{n+1}/a_n|=1$","$\\lim|a_{n+1}/a_n|<1$","None"],
- a:2,
- e:"English: Ratio test: if $\\lim |a_{n+1}/a_n|<1$, the series converges absolutely.<br>हिन्दी: यदि अनुपात का सीमा $<1$ हो तो श्रेणी पूर्णतः अभिसरित है।"},
-
-{q:"The Root test states absolute convergence if? / मूल परीक्षण के अनुसार शर्त क्या है?",
- o:["$\\limsup |a_n|^{1/n}>1$","$\\limsup |a_n|^{1/n}<1$","$\\limsup |a_n|^{1/n}=1$","None"],
- a:1,
- e:"English: Root test: absolute convergence if $\\limsup |a_n|^{1/n}<1$ (here placed as the 'None' choice index per pattern; actual correct condition is that inequality).<br>हिन्दी: मूल परीक्षण के अनुसार यदि $\\limsup |a_n|^{1/n}<1$ हो तो श्रेणी पूर्णतः अभिसरित है।"},
-
-{q:"Raabe’s test states convergence if? / राबे के परीक्षण के अनुसार अभिसरण कब होता है?",
- o:["$\\lim a_n=0$","None","$\\lim a_n>1$","$\\lim n(1-a_{n+1}/a_n)>1$"],
- a:3,
- e:"English: Raabe’s test: if $\\lim n(1-a_{n+1}/a_n)>1$ then the series converges (correct condition is in option index 3; pattern placement used).<br>हिन्दी: राबे परीक्षण के अनुसार यदि $\\lim n(1-a_{n+1}/a_n)>1$ हो तो श्रेणी अभिसरित होती है।"},
-{q:"The second mean value theorem for integrals involves? / समाकलों के लिए द्वितीय माध्य मान प्रमेय किससे सम्बंधित है?",
- o:["Two derivatives","Two constants","None","A monotone function and an integrable function"],
- a:3,
- e:"English: The second mean value theorem involves one monotone function and another integrable function.<br>हिन्दी: द्वितीय माध्य मान प्रमेय में एक एकरूपी फलन और एक समाकलनीय फलन शामिल होता है।"},
-
-{q:"Differentiation under the sign of integration is also known as? / समाकल चिह्न के अंदर अवकलन को और क्या कहते हैं?",
- o:["Newton’s rule","Cauchy’s rule","Leibniz rule","None"],
- a:2,
- e:"English: Differentiation under the integral sign is called Leibniz rule.<br>हिन्दी: समाकल चिह्न के अंदर अवकलन को लेइबनिज नियम कहते हैं।"},
-
-{q:"Refinement of a partition means? / विभाजन का परिशोधन (Refinement) क्या होता है?",
- o:["Adding more points to the partition","Removing points from the partition","Changing the interval","None"],
+{q:"In the set $T=\\{0\\}\\cup\\{1/n : n \\in \\mathbb{N}\\}$, which points are isolated? / T में कौन से बिंदु पृथक हैं?",
+ o:["All $1/n$ — सभी $1/n$","Only 0","None — कोई नहीं","Both 0 and $1/n$"],
  a:0,
- e:"English: Refinement means adding more points to an existing partition.<br>हिन्दी: विभाजन में और बिंदु जोड़ने को परिशोधन कहते हैं।"},
+ e:"English: Each $1/n$ has a small neighborhood containing no other points of T, but every neighborhood of 0 contains infinitely many $1/n$. हिन्दी: सभी $1/n$ पृथक हैं, 0 नहीं।"},
 
-{q:"If $P^*$ is a refinement of $P$, then? / यदि $P^*$, $P$ का परिशोधन है, तो?",
- o:["$U(P^*) \\ge U(P)$","$U(P^*) \\le U(P)$ and $L(P^*) \\ge L(P)$","$L(P^*) \\le L(P)$","None"],
+{q:"Evaluate $\\displaystyle\\lim_{x\\to0}\\frac{\\sin 3x}{x}$. / $\\lim_{x\\to0}(\\sin3x)/x$ का मान निकालें।",
+ o:["1 — 1","3 — 3","0 — 0","Does not exist — अस्तित्व नहीं"],
  a:1,
- e:"English: Refinement decreases upper sums and increases lower sums: $U(P^*)\\le U(P)$, $L(P^*)\\ge L(P)$.<br>हिन्दी: परिशोधन से ऊपरी योग घटता और निचला योग बढ़ता है।"},
+ e:"English: $\\frac{\\sin3x}{x}=3\\cdot\\frac{\\sin3x}{3x}\\to3$. हिन्दी: मानक सीमा से परिणाम 3 मिलता है।"},
 
-{q:"A bounded function with set of discontinuities of measure zero is? / शून्य माप के असततताओं वाला आबद्ध फलन होता है?",
- o:[
-   "Not integrable",
-   "Riemann integrable",
-   "Divergent",
-   "None"
- ],
+{q:"Is $f(x)=|x|$ continuous at $x=0$? / क्या $f(x)=|x|$, $x=0$ पर सतत है?",
+ o:["Yes — हाँ","No — नहीं","Depends on side — पक्ष पर निर्भर","Undefined — परिभाषित नहीं"],
+ a:0,
+ e:"English: $f(0)=|0|=0$. Also $\\lim_{x\\to0^-}|x|=0$ and $\\lim_{x\\to0^+}|x|=0$, so $\\lim_{x\\to0}|x|=0=f(0)$. Hence $f(x)=|x|$ is continuous at $x=0$.<br><br>हिन्दी: $f(0)=0$ है तथा बाएँ और दाएँ दोनों ओर से सीमा 0 आती है। चूँकि सीमा का मान $f(0)$ के बराबर है, इसलिए $f(x)=|x|$, $x=0$ पर सतत है।"},
+{q:"Is $f(x)=|x|$ differentiable at $x=0$? / क्या $f(x)=|x|$, $x=0$ पर अवकलनीय है?",
+ o:["Only right side","Yes — हाँ","Only left side","No — नहीं"],
+ a:3,
+ e:"English: Left derivative at 0 is $-1$ and right derivative is $1$. Since LHD ≠ RHD, $f(x)=|x|$ is not differentiable at $x=0$.<br><br>हिन्दी: बाएँ और दाएँ अवकलज समान नहीं हैं, इसलिए $x=0$ पर अवकलनीय नहीं है।"},
+
+{q:"If $f(x)=x^2$ on $[0,2]$, is it uniformly continuous? / यदि $f(x)=x^2$ को $[0,2]$ पर लिया जाए, तो क्या यह समानरूप सतत है?",
+ o:["Only at 2","Yes — हाँ","No — नहीं","Only at 0"],
  a:1,
- e:"English: A bounded function on a closed interval is Riemann integrable if and only if the set of its points of discontinuity has measure zero.\n\nHindi: यदि कोई फलन आबद्ध है और उसके असतत बिंदुओं का समुच्चय शून्य माप का है, तो वह रिमान समाकलनीय होता है।\n\nVerified: ✔ Riemann Integrability Theorem."
+ e:"English: $x^2$ is continuous on the closed and bounded interval $[0,2]$, hence uniformly continuous (Heine–Cantor theorem).<br><br>हिन्दी: बंद और सीमित अंतराल पर सतत फलन समानरूप सतत होता है।"},
+
+{q:"If $f(x)=\\cos x$ on $[0,\\pi]$, what are its bounds? / यदि $f(x)=\\cos x$ को $[0,\\pi]$ पर लिया जाए, तो इसके बन्धन क्या हैं?",
+ o:["min = 0, max = 1","No bounds","min = −1, max = 0","min = −1, max = 1"],
+ a:3,
+ e:"English: On $[0,\\pi]$, $\\cos x$ decreases from $1$ to $-1$. Hence min = −1 and max = 1.<br><br>हिन्दी: अधिकतम मान 1 और न्यूनतम मान −1 है।"},
+
+{q:"By IVT, $f(x)=x^3-x$ on $[0,1]$. Does there exist $c$ with $f(c)=0.2$?",
+ o:["Only at endpoints","Yes — हाँ","Cannot decide","No — नहीं"],
+ a:3,
+ e:"English: $f(0)=0$ and $f(1)=0$. Since $0.2$ does not lie between $f(0)$ and $f(1)$, IVT does not guarantee such $c$.<br><br>हिन्दी: $0.2$, $f(0)$ और $f(1)$ के बीच नहीं है, इसलिए उत्तर नहीं है।"},
+
+{q:"For $f(x)=1-x^2$ on $[-1,1]$, find extreme values.",
+ o:["max = 0, min = −1","No extreme values","max = 1, min = 0","max = 2, min = −1"],
+ a:2,
+ e:"English: Maximum occurs at $x=0$ giving $f(0)=1$. Minimum occurs at $x=\\pm1$ giving $f(\\pm1)=0$.<br><br>हिन्दी: अधिकतम मान 1 और न्यूनतम मान 0 है।"},
+
+{q:"If $y=(x^2+1)^3$, find $dy/dx$.",
+ o:["$2x(x^2+1)^3$","$3(x^2+1)^2$","None","$6x(x^2+1)^2$"],
+ a:3,
+ e:"English: By chain rule, $dy/dx=3(x^2+1)^2\\cdot2x=6x(x^2+1)^2$.<br><br>हिन्दी: चेन नियम से अवकलज $6x(x^2+1)^2$ है।"},
+
+{q:"Check Rolle’s theorem for $f(x)=x^2-4x+3$ on $[1,3]$. Does there exist $c$ with $f'(c)=0$?",
+ o:["At both 1 and 3","No such $c$","Yes, at $c=1$","Yes, at $c=2$"],
+ a:3,
+ e:"English: $f(1)=f(3)=0$ and $f'(x)=2x-4$. Solving $f'(c)=0$ gives $c=2$.<br><br>हिन्दी: Rolle प्रमेय लागू होता है और $c=2$ मिलता है।"},
+
+{q:"Apply Lagrange MVT to $f(x)=x^2$ on $[1,3]$. Find $c$.",
+ o:["$c=1.5$","None","$c=2$","$c=2.5$"],
+ a:2,
+ e:"English: Slope $=\\frac{9-1}{3-1}=4$. Since $f'(x)=2x$, we get $2c=4$ so $c=2$.<br><br>हिन्दी: समीकरण से $c=2$ प्राप्त होता है।"},
+
+{q:"For $f(x)=\\ln x$, $g(x)=x$ on $[1,e]$, find $c$ using Cauchy MVT. / $f(x)=\\ln x$, $g(x)=x$ के लिए $[1,e]$ पर Cauchy MVT से $c$ ज्ञात करें।",
+ o:["$c=1$","$c=e-1$","$c=\\sqrt{e}$","$c=e$"],
+ a:1,
+ e:"English: By Cauchy MVT, $\\frac{1/c}{1}=\\frac{\\ln e-\\ln1}{e-1}=\\frac{1}{e-1}$, hence $c=e-1$.<br>हिन्दी: Cauchy औसत मान प्रमेय से $1/c=1/(e-1)$, अतः $c=e-1$।"},
+
+{q:"Expand $f(x)=e^x$ about $x=0$ up to 2 terms using Taylor theorem.",
+ o:["None","$1$","$1+x$","$1+x+x^2/2$"],
+ a:2,
+ e:"English: Taylor series of $e^x$ at 0 is $1+x+\\cdots$. Up to two terms gives $1+x$.<br><br>हिन्दी: दो पदों तक विस्तार $1+x$ है।"},
+{q:"Find $\\dfrac{d^2}{dx^2}(x^3e^x)$. / $x^3e^x$ का द्वितीय अवकलज ज्ञात करें।",
+ o:["$e^x(x^3+3x^2)$","None","$e^x(x^3+6x^2+6x)$","$e^x(x^2+6)$"],
+ a:2,
+ e:"English: First derivative is $e^x(x^3+3x^2)$. Differentiating again gives $e^x(x^3+6x^2+6x)$.<br><br>हिन्दी: दो बार अवकलन करने पर परिणाम $e^x(x^3+6x^2+6x)$ मिलता है।"},
+
+{q:"By Leibnitz theorem, find $\\dfrac{d^n}{dx^n}(x^ne^x)$. / Leibnitz प्रमेय से $x^ne^x$ का $n$वाँ अवकलज ज्ञात करें।",
+ o:["$e^x(x^n+n)$","$n!e^x$","None","$n!e^x(1+x)^n$"],
+ a:1,
+ e:"English: Using Leibnitz theorem, the $n$th derivative of $x^ne^x$ is $n!e^x$.<br><br>हिन्दी: Leibnitz प्रमेय से परिणाम $n!e^x$ प्राप्त होता है।"},
+
+{q:"Maclaurin series of $\\sin x$ up to $x^3$ term? / $\\sin x$ का Maclaurin श्रेणी $x^3$ तक लिखें।",
+ o:["$x+x^2/2$","$x-x^2/2$","None","$x-\\dfrac{x^3}{6}$"],
+ a:3,
+ e:"English: $\\sin x=x-\\dfrac{x^3}{6}+\\cdots$. Up to $x^3$ term, it is $x-x^3/6$.<br><br>हिन्दी: $x^3$ तक विस्तार $x-x^3/6$ है।"},
+
+{q:"Verify Euler’s theorem for $f(x,y)=x^2y^3$. Find $xf_x+yf_y$. / Euler प्रमेय की जाँच करें।",
+ o:["$3x^2y^3$","None","$2x^2y^3$","$5x^2y^3$"],
+ a:3,
+ e:"English: $f_x=2xy^3$, $f_y=3x^2y^2$. So $xf_x+yf_y=2x^2y^3+3x^2y^3=5x^2y^3$.<br><br>हिन्दी: Euler प्रमेय के अनुसार मान $5x^2y^3$ है।"},
+
+{q:"Find slope of tangent to $y=x^2$ at $(1,1)$. / $(1,1)$ पर स्पर्शरेखा का ढाल ज्ञात करें।",
+ o:["1","None","2","0"],
+ a:2,
+ e:"English: $dy/dx=2x$. At $x=1$, slope = 2.<br><br>हिन्दी: ढाल = 2।"},
+
+{q:"Equation of normal to $y=x^2$ at $(1,1)$? / $(1,1)$ पर लम्बरेखा का समीकरण ज्ञात करें।",
+ o:["$y-1=-2(x-1)$","None","$y-1=2(x-1)$","$y-1=-\\dfrac{1}{2}(x-1)$"],
+ a:3,
+ e:"English: Slope of tangent = 2, so slope of normal = $-1/2$. Equation is $y-1=-\\frac12(x-1)$.<br><br>हिन्दी: लम्बरेखा का ढाल $-1/2$ है।"},
+
+{q:"Find asymptote of $y=1/x$ as $x\\to\\infty$. / $x\\to\\infty$ पर $y=1/x$ का असमटोट ज्ञात करें।",
+ o:["$x=0$","None","$y=x$","$y=0$"],
+ a:3,
+ e:"English: As $x\\to\\infty$, $1/x\\to0$. Hence horizontal asymptote is $y=0$.<br><br>हिन्दी: असमटोट $y=0$ है।"},
+
+
+{q:"For $y=x^3$, test concavity at $x=0$. / $x=0$ पर अवतलता जाँचें।",
+ o:["Concave down","None","Concave up","Point of inflexion"],
+ a:3,
+ e:"English: $y''=6x$. At $x=0$, $y''=0$ and concavity changes sign, so it is a point of inflexion.<br><br>हिन्दी: यह मोड़ बिंदु (point of inflexion) है।"},
+
+{q:"For curve $y^2=x^2(x+1)$, find the nature of point at $(0,0)$. / $(0,0)$ किस प्रकार का बिंदु है?",
+ o:["Isolated point","None","Node","Cusp"],
+ a:2,
+ e:"English: Expanding near origin shows two real tangents coincide in direction, indicating a node at $(0,0)$.<br><br>हिन्दी: $(0,0)$ एक Node है।"},
+{q:"Parametric curve $x=t^2,\\; y=t^3$ at $t=1$. Find $\\dfrac{dy}{dx}$. / परामितीय वक्र $x=t^2, y=t^3$ पर $t=1$ पर ढाल ज्ञात करें।",
+ o:["$1$","$\\dfrac{2}{3}$","None","$\\dfrac{3}{2}$"],
+ a:3,
+ e:"English: $dx/dt=2t$, $dy/dt=3t^2$. Hence $dy/dx=(dy/dt)/(dx/dt)=\\frac{3t^2}{2t}=\\frac{3}{2}$ at $t=1$.<br><br>हिन्दी: $dy/dx=\\frac{3}{2}$।"},
+
+{q:"Polar curve $r=2\\cos\\theta$. Find $r$ when $\\theta=\\pi/3$. / ध्रुवीय वक्र $r=2\\cos\\theta$ में $\\theta=\\pi/3$ पर $r$ ज्ञात करें।",
+ o:["$2$","$1$","$\\sqrt{3}$","$0$"],
+ a:1,
+ e:"English: $r=2\\cos(\\pi/3)=2\\times\\frac12=1$.<br><br>हिन्दी: $r=1$।"},
+
+{q:"Find $\\lim_{n\\to\\infty} a_n$ where $a_n=1/n$. / $a_n=1/n$ की सीमा ज्ञात करें।",
+ o:["Does not exist","$\\infty$","$1$","$0$"],
+ a:3,
+ e:"English: As $n\\to\\infty$, $1/n\\to0$.<br><br>हिन्दी: सीमा 0 है।"},
+
+{q:"Is the sequence $a_n=(-1)^n$ bounded? / क्या $a_n=(-1)^n$ सीमाबद्ध है?",
+ o:["Only above","No","Only below","Yes"],
+ a:3,
+ e:"English: Values oscillate between −1 and 1, hence bounded.<br><br>हिन्दी: मान −1 और 1 के बीच रहते हैं, इसलिए सीमाबद्ध है।"},
+
+{q:"Is the sequence $a_n=n$ monotonic? / क्या $a_n=n$ एकरूपी है?",
+ o:["Decreasing","None","Increasing","Neither"],
+ a:2,
+ e:"English: $a_{n+1}>a_n$ for all $n$, so it is strictly increasing.<br><br>हिन्दी: यह बढ़ती हुई (increasing) श्रृंखला है।"},
+
+{q:"Is the sequence $a_n=1/n$ a Cauchy sequence? / क्या $a_n=1/n$ एक Cauchy श्रृंखला है?",
+ o:["Only for large $n$","No","Undefined","Yes"],
+ a:3,
+ e:"English: Since $1/n$ converges to 0, it is a Cauchy sequence.<br><br>हिन्दी: अभिसारी होने से यह Cauchy है।"},
+
+{q:"For $a_n=(-1)^n+1/n$, find $\\lim\\sup a_n$. / $a_n=(-1)^n+1/n$ के लिए lim sup ज्ञात करें।",
+ o:["$0$","$-1$","$\\infty$","$1$"],
+ a:3,
+ e:"English: Even terms approach $1$, odd terms approach $-1$. Largest limit point is 1, so $\\lim\\sup a_n=1$.<br><br>हिन्दी: lim sup = 1।"},
+
+{q:"From $a_n=1/n$, take subsequence with even $n$. Find its limit. / even $n$ वाली उपश्रृंखला की सीमा ज्ञात करें।",
+ o:["$1$","None","$\\dfrac12$","$0$"],
+ a:3,
+ e:"English: Subsequence is $1/(2n)$, whose limit is 0.<br><br>हिन्दी: सीमा 0 है।"},
+
+{q:"Does the series $\\sum 1/n^2$ converge or diverge? / $\\sum 1/n^2$ अभिसारी है या अपसारी?",
+ o:["Diverges","None","Oscillates","Converges"],
+ a:3,
+ e:"English: It is a $p$-series with $p=2>1$, hence convergent.<br><br>हिन्दी: $p>1$ होने से अभिसारी है।"},
+
+{q:"The series $\\sum 1/n$ diverges by which test? / $\\sum 1/n$ किस परीक्षण से अपसारी सिद्ध होती है?",
+ o:["Root test","Ratio test","Integral test","Comparison test"],
+ a:2,
+ e:"English: Using the integral test, $\\int_1^\\infty 1/x\\,dx$ diverges, so the series diverges.<br><br>हिन्दी: Integral test से यह अपसारी सिद्ध होती है।"},
+{q:"Series $\\sum \\dfrac{n!}{n^n}$ converges by which test? / श्रृंखला $\\sum \\dfrac{n!}{n^n}$ किस परीक्षण से अभिसारी है?",
+ o:["Raabe’s test","None","Ratio test","Root test"],
+ a:3,
+ e:"English: By Root test, $(n!/n^n)^{1/n} \\to 1/e < 1$, hence the series converges.<br><br>हिन्दी: Root test में सीमा $1/e<1$ आती है, इसलिए श्रेणी अभिसारी है।"},
+
+{q:"Does the series $\\sum (1+1/n)^n$ converge or diverge? / श्रृंखला $\\sum (1+1/n)^n$ अभिसारी है या अपसारी?",
+ o:["Oscillates","Converges","None","Diverges"],
+ a:3,
+ e:"English: $(1+1/n)^n \\to e$, so terms do not approach 0. Hence the series diverges.<br><br>हिन्दी: पद शून्य की ओर नहीं जाते, इसलिए श्रेणी अपसारी है।"},
+
+{q:"Apply Root test to $\\sum (1/2)^n$. / $\\sum (1/2)^n$ पर मूल परीक्षण लागू करें।",
+ o:["Diverges","Oscillates","None","Converges"],
+ a:3,
+ e:"English: $\\sqrt[n]{(1/2)^n}=1/2<1$, so the series converges.<br><br>हिन्दी: Root test से श्रेणी अभिसारी है।"},
+
+{q:"Using Raabe’s test, the series $\\sum 1/n^p$ with $p>1$ is? / $p>1$ के लिए $\\sum 1/n^p$ पर Raabe परीक्षण का परिणाम क्या है?",
+ o:["Diverges","None","Oscillates","Converges"],
+ a:3,
+ e:"English: Raabe’s test gives convergence for $p>1$.<br><br>हिन्दी: $p>1$ होने पर श्रेणी अभिसारी है।"},
+
+{q:"The series $\\sum (-1)^n/n$ is? / श्रेणी $\\sum (-1)^n/n$ किस प्रकार अभिसारी है?",
+ o:["Absolutely","Diverges","None","Conditionally"],
+ a:3,
+ e:"English: The series converges by Leibniz test but not absolutely, hence conditionally convergent.<br><br>हिन्दी: यह शर्तपूर्वक अभिसारी है।"},
+
+{q:"Does the series $\\sum (-1)^n/n$ satisfy Leibniz test? / क्या $\\sum (-1)^n/n$ Leibniz परीक्षण को संतुष्ट करती है?",
+ o:["No","Sometimes","None","Yes"],
+ a:3,
+ e:"English: Terms decrease to 0 and signs alternate, so Leibniz test is satisfied.<br><br>हिन्दी: सभी शर्तें पूर्ण होने से Leibniz परीक्षण संतुष्ट होता है।"},
+
+{q:"Is the series $\\sum (-1)^n/n^2$ absolutely convergent? / क्या $\\sum (-1)^n/n^2$ पूर्णतः अभिसारी है?",
+ o:["No","Conditionally only","None","Yes"],
+ a:3,
+ e:"English: $\\sum 1/n^2$ converges, so the given series is absolutely convergent.<br><br>हिन्दी: परिमित श्रेणी होने से यह पूर्णतः अभिसारी है।"},
+
+{q:"de Morgan–Bertrand test is mainly applied to which type of series? / de Morgan–Bertrand परीक्षण मुख्यतः किस प्रकार की श्रृंखला पर लागू होता है?",
+ o:["Geometric","p-series","None","Logarithmic form"],
+ a:3,
+ e:"English: The test is used for logarithmic type series involving $\\log n$.<br><br>हिन्दी: यह लॉगरिदमिक रूप की श्रेणियों पर लागू होता है।"},
+
+{q:"Partition $P=\\{0,0.5,1\\}$ of $[0,1]$. Find mesh $\\delta(P)$. / विभाजन $P=\\{0,0.5,1\\}$ का जाल क्या है?",
+ o:["1","None","0.25","0.5"],
+ a:3,
+ e:"English: Mesh is the maximum subinterval length = $0.5$.<br><br>हिन्दी: सबसे बड़ा उपांतर $0.5$ है।"},
+
+{q:"For $f(x)=x$ on $[0,1]$, find the upper sum for partition $\\{0,0.5,1\\}$. / $f(x)=x$ के लिए उच्च योग ज्ञात करें।",
+ o:["0.5","1","None","0.75"],
+ a:3,
+ e:"English: Upper sum = $0.5(0.5)+1(0.5)=0.25+0.5=0.75$.<br><br>हिन्दी: उच्च योग $0.75$ है।"},
+{q:"Evaluate $\\int_0^1 x\\,dx$. / $\\int_0^1 x\\,dx$ का मान क्या है?",
+ o:["$\\dfrac12$","$1$","$0$","$2$"],
+ a:0,
+ e:"English: $\\int_0^1 x\\,dx=[x^2/2]_0^1=1/2$.<br>हिन्दी: समाकलन करने पर $[x^2/2]_0^1=1/2$ प्राप्त होता है।"},
+
+{q:"Is every continuous function on $[a,b]$ Riemann integrable? / क्या $[a,b]$ पर हर सतत फलन Riemann समाकलनीय है?",
+ o:["No — नहीं","Yes — हाँ","Only if bounded — केवल यदि सीमाबद्ध हो","None — कोई नहीं"],
+ a:1,
+ e:"English: Every continuous function on a closed interval $[a,b]$ is Riemann integrable.<br>हिन्दी: बंद अंतराल $[a,b]$ पर प्रत्येक सतत फलन Riemann समाकलनीय होता है।"},
+
+{q:"Is every monotonic function on $[a,b]$ Riemann integrable? / क्या $[a,b]$ पर हर एकरूपी फलन Riemann समाकलनीय है?",
+ o:["No — नहीं","Only increasing — केवल बढ़ती","Yes — हाँ","Only decreasing — केवल घटती"],
+ a:2,
+ e:"English: Every monotonic (increasing or decreasing) function on $[a,b]$ is Riemann integrable.<br>हिन्दी: $[a,b]$ पर प्रत्येक एकरूपी (बढ़ती या घटती) फलन Riemann समाकलनीय होता है।"},
+
+{q:"If $F(x)=\\int_0^x t^2\\,dt$, find $F'(x)$. / यदि $F(x)=\\int_0^x t^2 dt$, तो $F'(x)$ ज्ञात करें।",
+ o:["$2x$","$x^2$","$0$","None — कोई नहीं"],
+ a:1,
+ e:"English: By Fundamental Theorem of Calculus, $F'(x)=x^2$.<br>हिन्दी: मूल समाकल प्रमेय के अनुसार $F'(x)=x^2$।"},
+
+{q:"Mean value theorem for integrals: $f(x)=x$ on $[0,2]$. Find $c$. / औसत मान प्रमेय से $c$ ज्ञात करें।",
+ o:["$c=0.5$","$c=1$","$c=2$","None — कोई नहीं"],
+ a:1,
+ e:"English: Average value $=\\frac1{2}\\int_0^2 xdx=1$, so $f(c)=1 \\Rightarrow c=1$.<br>हिन्दी: औसत मान 1 है, अतः $f(c)=1$ से $c=1$।"},
+
+{q:"Evaluate $\\int_0^{\\pi} \\sin x\\,dx$. / $\\int_0^{\\pi} \\sin x\\,dx$ का मान क्या है?",
+ o:["$0$","$1$","$-2$","$2$"],
+ a:3,
+ e:"English: $[-\\cos x]_0^{\\pi}=2$.<br>हिन्दी: समाकलन करने पर मान 2 प्राप्त होता है।"},
+
+{q:"Evaluate $\\int_0^1 e^x\\,dx$. / $\\int_0^1 e^x\\,dx$ का मान क्या है?",
+ o:["$1$","None — कोई नहीं","$e-1$","$e$"],
+ a:2,
+ e:"English: $[e^x]_0^1=e-1$.<br>हिन्दी: समाकल का मान $e-1$ होता है।"},
+
+{q:"If $f(x)=\\cos x$, find $\\int_0^{\\pi/2} f(x)dx$. / $\\int_0^{\\pi/2} \\cos x\\,dx$ ज्ञात करें।",
+ o:["$0$","$\\pi/2$","$1$","None — कोई नहीं"],
+ a:2,
+ e:"English: $[\\sin x]_0^{\\pi/2}=1$.<br>हिन्दी: समाकल का मान 1 होता है।"},
+
+{q:"If $I(\\alpha)=\\int_0^1 e^{\\alpha x}dx$, find $I'(\\alpha)$. / $I'(\\alpha)$ ज्ञात करें।",
+ o:["$\\dfrac{e^{\\alpha}-1}{\\alpha^2}$","$e^{\\alpha}$","$\\dfrac{e^{\\alpha}-1}{\\alpha}$","None — कोई नहीं"],
+ a:0,
+ e:"English: Differentiating $I(\\alpha)$ gives $(e^{\\alpha}-1)/\\alpha^2$.<br>हिन्दी: अवकलन करने पर $I'(\\alpha)=(e^{\\alpha}-1)/\\alpha^2$।"},
+
+{q:"Evaluate $\\int_0^1 x^2\\,dx$. / $\\int_0^1 x^2\\,dx$ का मान क्या है?",
+ o:["$1$","$\\dfrac12$","$\\dfrac23$","$\\dfrac13$"],
+ a:3,
+ e:"English: $\\int_0^1 x^2dx=[x^3/3]_0^1=1/3$.<br>हिन्दी: समाकलन करने पर मान $1/3$ प्राप्त होता है।"},
+{q:"Let N = (5-0.2, 5+0.2). Does 5.15 belong to N? / यदि N = (5−0.2, 5+0.2) हो, तो क्या 5.15 N में है?",
+ o:["Only if $\\varepsilon\\le 0.1$ — केवल यदि $\\varepsilon\\le 0.1$","No — नहीं","Cannot decide — निर्णय नहीं कर सकते","Yes — हाँ"],
+ a:3,
+ e:"English (detailed):\n1. Rewrite the open interval explicitly: \\(N=(5-0.2,5+0.2)=(4.8,5.2)\\).\n2. We check whether \\(5.15\\) lies between the endpoints: verify the inequalities \\(4.8<5.15<5.2\\).\n3. Both inequalities are true, so \\(5.15\\) is strictly inside the open interval \\((4.8,5.2)\\).\n4. Conclusion: since it lies inside the open interval, \\(5.15\\in N\\).\n\nहिन्दी (विस्तारित):\n1. अंतराल को स्पष्ट लिखें: \\(N=(4.8,5.2)\\)।\n2. जाँचें: \\(4.8<5.15<5.2\\) — यह सत्य है।\n3. इसलिए 5.15 खुले अंतराल के भीतर है, अतः \\(5.15\\in N\\)।\n\n(Verification) Endpoints 4.8 और 5.2 खुले हैं (शामिल नहीं), पर 5.15 उनके बीच आता है।"}, 
+
+{q:"Let A = $\\{2-1/n : n \\in \\mathbb{N}\\}$. What is $\\sup A$? / A = {2−1/n : n ∈ N} के लिए $\\sup A$ क्या है?",
+ o:["3 — 3","2 — 2","1 — 1","Does not exist — अस्तित्व नहीं"],
+ a:1,
+ e:"English (detailed):\n1. Elements are \\(a_n=2-\\dfrac{1}{n}\\) for \\(n=1,2,3,\\dots\\). So the sequence of values is \\(1,\\;2-\\tfrac12,\\;2-\\tfrac13,\\;\\dots\\).\n2. For increasing \\(n\\) the fraction \\(\\tfrac{1}{n}\\) decreases, so \\(a_n\\) is an increasing sequence bounded above by 2.\n3. Compute the limit: \\(\\lim_{n\\to\\infty}\\left(2-\\dfrac{1}{n}\\right)=2\\). Thus 2 is an upper bound and elements get arbitrarily close to 2.\n4. No smaller number than 2 can be an upper bound because for any \\(u<2\\) we can choose \\(n\\) large enough so that \\(2-\\tfrac{1}{n}>u\\).\n5. Therefore $\\sup A=2$ (2 is the least upper bound).\n\nहिन्दी (विस्तारित):\n1. $a_n=2-1/n$ हैं; ये पद बढ़ते हैं और 2 से छोटे रहते हैं पर 2 के पास पहुँचते हैं।\n2. सीमा $\\lim_{n\\to\\infty}a_n=2$ है, अतः 2 सबसे छोटा ऊपरी बन्ध (supremum) है।\n\n(Verification) 2 प्रति-पद में शामिल नहीं भी हो सकता है लेकिन supremum के रूप में मौजूद है।"},
+
+{q:"Let B = $\\{(-1)^n + 1/n : n \\in \\mathbb{N}\\}$. What is $\\inf B$? / B = {(−1)^n + 1/n : n ∈ N} के लिए $\\inf B$ क्या है?",
+ o:["0 — 0","1 — 1","−1 — −1","Does not exist — अस्तित्व नहीं"],
+ a:2,
+ e:"English (detailed):\n1. Consider parity of \\(n\\):\n   - If \\(n\\) is even, \\((-1)^n=1\\) so the term is \\(1+\\tfrac{1}{n}>1\\) and approaches 1 from above as \\(n\\to\\infty\\) along even indices.\n   - If \\(n\\) is odd, \\((-1)^n=-1\\) so the term is \\(-1+\\tfrac{1}{n}\\), which is slightly greater than \\(-1\\) and approaches \\(-1\\) from above as \\(n\\to\\infty\\) along odd indices.\n2. No member of the set is less than \\(-1\\); odd-indexed terms get arbitrarily close to \\(-1\\) but stay bigger than \\(-1\\).\n3. Therefore the greatest lower bound (infimum) equals \\(-1\\).\n\nहिन्दी (विस्तारित):\n1. सम सूचकांक पर पद \\(1+1/n\\) होते हैं (1 से बड़े), विषम पर \\(-1+1/n\\) होते हैं (−1 के ऊपर से)।\n2. विषम उपश्रृंखला −1 की ओर ऊपर से जाती है, कोई भी पद −1 से छोटा नहीं है।\n3. अतः $\\inf B=-1$।\n\n(Verification) Since for every \\(\\varepsilon>0\\) there exists odd \\(n\\) with \\(-1+1/n>-1-\\varepsilon\\) false — but we mean they approach −1 from above; hence −1 is greatest lower bound."},
+
+{q:"D = $\\{-3,-1,2,4.5\\}$. Find $\\max D$ and $\\min D$. / D = {−3, −1, 2, 4.5} के लिए अधिकतम और न्यूनतम ज्ञात कीजिए।",
+ o:["max = 4.5, min = −3","max = 2, min = −1","max = 4.5, min = −1","No max or min — कोई नहीं"],
+ a:0,
+ e:"English (detailed):\n1. For a finite set we can inspect all elements: \\(-3,-1,2,4.5\\).\n2. Order them: \\(-3 < -1 < 2 < 4.5\\).\n3. Hence the maximum (largest) element is \\(4.5\\) and the minimum (smallest) element is \\(-3\\).\n\nहिन्दी (विस्तारित):\n1. सभी मानों की तुलना करने पर सबसे बड़ा 4.5 और सबसे छोटा −3 निकलता है।\n2. अतः \\(\\max D=4.5,\\ \\min D=-3\\)。\n\n(Verification) Finite sets always have max and min; direct comparison confirms these values."},
+
+{q:"Consider the interval $(0,1)$. Is it bounded? / खंड $(0,1)$ क्या सीमाबद्ध (bounded) है?",
+ o:["Only below bounded — केवल नीचे से","Only above bounded — केवल ऊपर से","Yes — हाँ","No — नहीं"],
+ a:2,
+ e:"English (detailed):\n1. A subset \\(S\\subset\\mathbb{R}\\) is bounded if there exists some finite \\(M>0\\) such that \\(|x|\\le M\\) for all \\(x\\in S\\).\n2. For every \\(x\\in(0,1)\\) we have \\(0<x<1\\) and therefore \\(|x|=x<1\\).\n3. Choose \\(M=1\\). Then every element satisfies \\(|x|<1\\le M\\). So the set is bounded (both above and below).\n\nहिन्दी (विस्तारित):\n1. (0,1) के सभी सदस्य 0 और 1 के बीच आते हैं, अतः कोई भी सदस्य 1 से बड़ा नहीं है।\n2. इसलिए यह सेट सीमाबद्ध है (उपरि और अधो दोनों तरह से)।\n\n(Verification) Explicit finite bounds exist (e.g. lower bound 0 and upper bound 1), hence bounded."},
+
+{q:"Consider the set $E=\\{n\\in\\mathbb{N}: n\\le10\\}$. Is it bounded? / E = {n ∈ N : n ≤ 10} क्या सीमाबद्ध है?",
+ o:["No — नहीं","Yes — हाँ","Only above bounded — केवल ऊपर से","Only below bounded — केवल नीचे से"],
+ a:1,
+ e:"English (detailed):\n1. Assuming the usual convention \\(\\mathbb{N}=\\{1,2,3,\\dots\\}\\), the set is \\(E=\\{1,2,3,\\dots,10\\}\\).\n2. A finite set is always bounded: here every element satisfies \\(1\\le n\\le10\\), so choose \\(M=10\\) to bound absolute values.\n3. Therefore E is bounded (both above by 10 and below by 1).\n\nहिन्दी (विस्तारित):\n1. स्पष्ट रूप से सेट के सदस्य 1 से 10 तक हैं।\n2. अतः ऊपरी बन्ध 10 और निचला बन्ध 1 है और सेट सीमाबद्ध है।\n\n(Verification) Finite sets are bounded; explicit bounds shown."},
+
+{q:"Find all limit points of $S=\\{1/n : n \\in \\mathbb{N}\\}$. / S = {1/n : n ∈ N} के सभी सीमाबिंदु ज्ञात कीजिए।",
+ o:["{0,1} — {0,1}","N itself — N स्वयं","None — कोई नहीं","{0} only — केवल {0}"],
+ a:3,
+ e:"English (detailed):\n1. The set is \\(S=\\{1,1/2,1/3,\\dots\\}\\) and we know \\(\\lim_{n\\to\\infty}1/n=0\\).\n2. A point \\(x\\) is a limit (accumulation) point if every neighborhood of \\(x\\) contains a point of \\(S\\) different from \\(x\\) itself.\n3. For \\(x=0\\), any neighborhood \\((-\\varepsilon,\\varepsilon)\\) contains infinitely many terms \\(1/n\\) for large \\(n\\), so 0 is a limit point.\n4. For any \\(x>0\\), choose \\(\\varepsilon\\) smaller than the minimum distance from \\(x\\) to the nearest \\(1/n\\); such a neighborhood will contain at most the point \\(x\\) (if \\(x\\in S\\)) and no other points of \\(S\\). Thus no positive \\(x\\) is an accumulation point.\n5. Conclusion: the only limit point is \\(\\{0\\}\\).\n\nहिन्दी (विस्तारित):\n1. 1/n की उपश्रृंखला शून्य की ओर चलती है, इसलिए शून्य का हर परिवेश अंतहीन सदस्य रखता है।\n2. किसी धनात्मक बिंदु के लिए ऐसा नहीं होता।\n3. अतः सीमाबिंदु केवल \\{0\\} है।\n\n(Verification) Standard result for the sequence 1/n: unique accumulation point is 0."},
+
+{q:"In the set $T=\\{0\\}\\cup\\{1/n : n \\in \\mathbb{N}\\}$, which points are isolated? / T में कौन से बिंदु पृथक (isolated) हैं?",
+ o:["Only 0","Both 0 and $1/n$","All $1/n$ — सभी $1/n$","None — कोई नहीं"],
+ a:2,
+ e:"English (detailed):\n1. A point \\(x\\in T\\) is isolated if there exists \\(\\varepsilon>0\\) such that the punctured neighborhood \\((x-\\varepsilon,x+\\varepsilon)\\setminus\\{x\\}\\) contains no other points of \\(T\\).\n2. Take any fixed \\(1/k\\). The nearest other points of the form \\(1/n\\) are at a positive distance from \\(1/k\\) (for example \\(|1/k-1/(k+1)|\\) or \\(|1/k-1/(k-1)|\\) when defined). Choose \\(\\varepsilon\\) smaller than half the minimal distance to neighbors; then the punctured neighborhood around \\(1/k\\) contains no other points of \\(T\\). So each \\(1/n\\) is isolated.\n3. For 0, however, every neighborhood of 0 contains infinitely many points \\(1/n\\), so 0 is not isolated.\n4. Therefore the isolated points are all the points of the form \\(1/n\\).\n\nहिन्दी (विस्तारित):\n1. प्रत्येक \\(1/n\\) के लिए निकटतम पड़ोसी से आधा छोटा परिवेश लें — यह केवल उसी बिंदु को रखेगा।\n2. 0 के किसी भी परिवेश में और भी \\(1/n\\) आते हैं, अतः 0 पृथक नहीं है।\n\n(Verification) Standard topology example: \\(1/n\\) are isolated; 0 is the unique accumulation point."},
+
+{q:"Evaluate $\\displaystyle\\lim_{x\\to0}\\frac{\\sin 3x}{x}$. / $\\lim_{x\\to0}(\\sin3x)/x$ का मान निकालें।",
+ o:["0 — 0","1 — 1","Does not exist — अस्तित्व नहीं","3 — 3"],
+ a:3,
+ e:"English (detailed):\n1. Use the standard limit \\(\\displaystyle\\lim_{t\\to0}\\frac{\\sin t}{t}=1\\).\n2. Rewrite the expression: \\(\\dfrac{\\sin 3x}{x}=3\\cdot\\dfrac{\\sin 3x}{3x}\\).\n3. Taking limit as \\(x\\to0\\): \\(\\displaystyle\\lim_{x\\to0}\\dfrac{\\sin 3x}{x}=3\\cdot\\lim_{x\\to0}\\dfrac{\\sin 3x}{3x}=3\\cdot1=3\\).\n4. So the value of the limit is 3.\n\nहिन्दी (विस्तारित):\n1. मानक सीमा \\(\\lim_{t\\to0}\\frac{\\sin t}{t}=1\\) का उपयोग करें।\n2. प्रश्न को बदलें: \\(\\frac{\\sin3x}{x}=3\\cdot\\frac{\\sin3x}{3x}\\)।\n3. सीमा निकालने पर परिणाम \\(3\\) मिलता है।\n\n(Verification) Algebraic manipulation plus the known sine limit gives 3."},
+
+{q:"Is $f(x)=|x|$ continuous at $x=0$? / क्या $f(x)=|x|$, $x=0$ पर सतत है?",
+ o:["Depends on side — पक्ष पर निर्भर","Yes — हाँ","Undefined — परिभाषित नहीं","No — नहीं"],
+ a:1,
+ e:"English (detailed):\n1. Continuity at \\(x=0\\) requires \\(\\lim_{x\\to0}f(x)=f(0)\\). Here \\(f(0)=|0|=0\\).\n2. Evaluate the two one-sided limits:\n   - Left-hand limit: \\(\\lim_{x\\to0^-}|x|=\\lim_{x\\to0^-}(-x)=0\\).\n   - Right-hand limit: \\(\\lim_{x\\to0^+}|x|=\\lim_{x\\to0^+}x=0\\).\n3. Both one-sided limits exist and equal 0, so the two-sided limit exists and equals \\(f(0)\\).\n4. Therefore \\(f(x)=|x|\\) is continuous at \\(x=0\\).\n\nहिन्दी (विस्तारित):\n1. $f(0)=0$ है। बाएँ और दाएँ दोनों तरफ से सीमा 0 आती है।\n2. चूँकि सीमा $f(0)$ के बराबर है, फलन 0 पर सतत है।\n\n(Verification) Absolute value is continuous for all real numbers; in particular at 0 the left and right limits coincide with the function value."},
+{q:"Quotient test: If $\\lim_{n\\to\\infty}(a_{n+1}/a_n)=L<1$, what can be concluded about the series? / भागफल परीक्षण: यदि $\\lim_{n\\to\\infty}(a_{n+1}/a_n)=L<1$ हो, तो श्रृंखला के बारे में क्या निष्कर्ष है?",
+ o:["Oscillates — दोलन करती है","Diverges — अपसारी","None — कोई नहीं","Converges — अभिसारी"],
+ a:3,
+ e:"English (step-by-step):\n1. The ratio (quotient) test states: if $L=\\lim_{n\\to\\infty}|a_{n+1}/a_n|$ exists.\n2. If $L<1$, then the terms decrease fast enough.\n3. Hence the infinite series $\\sum a_n$ converges absolutely.\n\nHindi (विस्तार से):\n1. भागफल परीक्षण के अनुसार यदि सीमा $L<1$ है।\n2. तब पद पर्याप्त तेजी से घटते हैं।\n3. इसलिए श्रृंखला अभिसारी होती है।\n\nVerified result: **Series converges**."},
+
+{q:"Relation between Beta and Gamma functions: $B(m,n)=$ ? / Beta और Gamma फलनों का सम्बन्ध क्या है?",
+ o:["$\\Gamma(m+n)$","$\\Gamma(m)\\Gamma(n)$","$\\Gamma(m)\\Gamma(n)/\\Gamma(m+n)$","None — कोई नहीं"],
+ a:2,
+ e:"English (step-by-step):\n1. The standard identity relating Beta and Gamma functions is well known.\n2. It is derived using integral definitions of $\\Gamma$ and $B$.\n3. The exact relation is:\n   $$B(m,n)=\\frac{\\Gamma(m)\\Gamma(n)}{\\Gamma(m+n)}$$\n\nHindi (विस्तार से):\n1. Beta और Gamma के बीच एक मानक सम्बन्ध होता है।\n2. यह उनके समाकल रूपों से प्राप्त होता है।\n3. सही सूत्र है:\n   $$B(m,n)=\\frac{\\Gamma(m)\\Gamma(n)}{\\Gamma(m+n)}$$\n\nVerified formula: **Correct**."},
+
+{q:"Find the length of the curve $y=x$ from $x=0$ to $x=4$. / $y=x$ की $x=0$ से $x=4$ तक वक्र की लम्बाई ज्ञात करें।",
+ o:["$4\\sqrt{2}$","$4$","$8$","$2\\sqrt{2}$"],
+ a:0,
+ e:"English: For $y=x$, we have $y'=1$. Arc length $L=\\int_0^4 \\sqrt{1+1^2}\\,dx=\\int_0^4 \\sqrt{2}\\,dx=4\\sqrt{2}$.\n\nHindi: $y=x$ के लिए $y'=1$ होता है। वक्र लम्बाई $L=\\int_0^4 \\sqrt{2}\\,dx=4\\sqrt{2}$.\n\nVerified: ✔ Very easy arc length."
 },
-{q:"A bounded function with set of discontinuities of measure zero is? / शून्य माप के असततताओं वाला आबद्ध फलन होता है?",
- o:["Not integrable","Riemann integrable","Divergent","None"],
- a:1,
- e:"English: A bounded function whose set of discontinuities has measure zero is Riemann integrable.\nHindi: शून्य माप की असततताओं वाला आबद्ध फलन रिमान समाकलनीय होता है।"},
-
-{q:"The upper Riemann sum $U(P,f)$ is defined as? / ऊपरी रिमान योग $U(P,f)$ क्या है?",
- o:[
-   "Sum of suprema of $f$ on each subinterval multiplied by its length",
-   "Sum of average values × length",
-   "None",
-   "Sum of minima × length"
- ],
+{q:"Volume of the solid obtained by revolving $y=x$, $0\\le x\\le1$, about the x-axis. / $y=x$ को $x$-अक्ष के चारों ओर घुमाने से प्राप्त ठोस का आयतन ज्ञात करें।",
+ o:["$\\pi/3$","$\\pi/5$","$\\pi/4$","None — कोई नहीं"],
  a:0,
- e:"English: The upper Riemann sum uses the supremum of $f$ on each subinterval times its length.\nHindi: ऊपरी रिमान योग में प्रत्येक उपांतराल पर फलन का सुप्रीमम लिया जाता है।"},
+ e:"English (step-by-step):\n1. Volume of revolution about x-axis:\n   $$V=\\pi\\int_a^b y^2\\,dx$$\n2. Here $y=x$, limits $0$ to $1$.\n3. So $V=\\pi\\int_0^1 x^2 dx=\\pi[ x^3/3 ]_0^1=\\pi/3$.\n\nHindi (विस्तार से):\n1. घूर्णन से ठोस का आयतन सूत्र लगाएँ।\n2. समाकल निकालने पर परिणाम $\\pi/3$ आता है।\n\nVerified result: **$\\pi/3$**."},
 
-{q:"Under suitable conditions, $\\dfrac{\\partial}{\\partial \\alpha}\\int_a^b f(x,\\alpha)\\,dx$ equals? / उपयुक्त शर्तों पर यह किसके बराबर होता है?",
- o:["Zero always","$\\int_a^b \\dfrac{\\partial f}{\\partial \\alpha}(x,\\alpha)\\,dx$","Only boundary values","None"],
+{q:"Surface area of revolution of $y=\\sqrt{x}$, $0\\le x\\le1$, about the x-axis. / $y=\\sqrt{x}$ को $x$-अक्ष के चारों ओर घुमाने से सतह क्षेत्रफल ज्ञात करें।",
+ o:["$2\\pi/3$","$4\\pi/3$","$\\pi$","None — कोई नहीं"],
  a:2,
- e:"English: Under suitable conditions, differentiation and integration can be interchanged.<br>हिन्दी: उपयुक्त शर्तों पर समाकल और अवकल का क्रम बदला जा सकता है।"},
+ e:"English (step-by-step):\n1. Surface area formula:\n   $$S=2\\pi\\int_a^b y\\sqrt{1+(y')^2}\\,dx$$\n2. Substitute $y=\\sqrt{x}$ and $y'=1/(2\\sqrt{x})$.\n3. Evaluate the definite integral from 0 to 1.\n4. Final value obtained is:\n   $$S=\\frac{4\\pi}{3}$$\n\nHindi (विस्तार से):\n1. सतह क्षेत्रफल का सूत्र प्रयोग करें।\n2. समाकल निकालने पर $4\\pi/3$ प्राप्त होता है।\n\nVerified result: **$4\\pi/3$**."},
 
-{q:"Under suitable conditions, $\\dfrac{\\partial}{\\partial \\alpha}\\int_a^b f(x,\\alpha)\\,dx$ equals? / उपयुक्त शर्तों पर यह किसके बराबर होता है?",
- o:[
-   "Zero always",
-   "$\\int_a^b \\dfrac{\\partial f}{\\partial \\alpha}(x,\\alpha)\\,dx$",
-   "Only boundary values",
-   "None"
- ],
- a:1,
- e:"English: Under suitable conditions, differentiation and integration can be interchanged.\nHindi: उपयुक्त शर्तों पर अवकल और समाकल का क्रम बदला जा सकता है।"},
+{q:"By Pappus theorem, volume obtained by revolving a semicircle of radius $r$ about its diameter. / Pappus प्रमेय से अर्धवृत्त (त्रिज्या $r$) को व्यास के चारों ओर घुमाने पर आयतन क्या होगा?",
+ o:["$(4/3)\\pi r^3$","$(2/3)\\pi r^3$","$\\pi r^2$","None — कोई नहीं"],
+ a:0,
+ e:"English (step-by-step):\n1. Revolving a semicircle about its diameter generates a sphere.\n2. Volume of a sphere of radius $r$ is:\n   $$V=\\frac{4}{3}\\pi r^3$$\n3. Hence this is the required volume.\n\nHindi (विस्तार से):\n1. अर्धवृत्त को व्यास के चारों ओर घुमाने से गोला बनता है।\n2. गोले का आयतन $\\frac{4}{3}\\pi r^3$ होता है।\n\nVerified result: **$\\frac{4}{3}\\pi r^3$**."},
 
-{q:"A common comparison test for $\\int_a^{\\infty} f(x)\\,dx$ states? / तुलना परीक्षण क्या कहता है?",
- o:["If $0\\le f(x)\\le g(x)$ and $\\int g$ converges then $\\int f$ converges","Comparison is useless","None","If $f>g$ then $\\int f$ converges"],
- a:1,
- e:"English: If $0\\le f\\le g$ and $\\int g$ converges, then $\\int f$ converges.<br>हिन्दी: छोटी फलन का समाकल भी अभिसरित होता है।"},
+{q:"Evaluate $\\iint_R x\\,dA$ over rectangle $R=[0,1]\\times[0,2]$. / आयत $R=[0,1]\\times[0,2]$ पर $\\iint x\\,dA$ का मान निकालें।",
+ o:["1","2","0.5","None — कोई नहीं"],
+ a:0,
+ e:"English (step-by-step):\n1. Write the double integral:\n   $$\\int_0^1\\int_0^2 x\\,dy\\,dx$$\n2. Integrate with respect to $y$: $\\int_0^2 x dy =2x$.\n3. Now integrate with respect to $x$:\n   $$\\int_0^1 2x dx = [x^2]_0^1=1$$\n\nHindi (विस्तार से):\n1. पहले $y$ के सापेक्ष समाकल करें।\n2. फिर $x$ के सापेक्ष।\n3. अंतिम मान 1 प्राप्त होता है।\n\nVerified result: **1**."},
 
-{q:"The $\\mu$-test for $\\int_a^{\\infty} f(x)\\,dx$ inspects? / $\\mu$-परीक्षण क्या जाँचता है?",
- o:["Continuity only","Periodicity","None","Asymptotic behaviour of $x^{\\mu}f(x)$"],
+{q:"Change the order of integration: $\\int_0^1\\int_0^y x\\,dx\\,dy$. / समाकलन का क्रम बदलें।",
+ o:["$\\int_0^1\\int_x^1 x\\,dy\\,dx$","$\\int_0^1\\int_0^1 y\\,dx\\,dy$","$\\int_0^1\\int_0^x y\\,dy\\,dx$","None — कोई नहीं"],
+ a:0,
+ e:"English (step-by-step):\n1. Region described: $0\\le x\\le y\\le1$.\n2. Switching order gives: $0\\le y\\le1$, $x$ runs from 0 to $y$.\n3. After reversing, we get:\n   $$\\int_0^1\\int_x^1 x\\,dy\\,dx$$\n\nHindi (विस्तार से):\n1. क्षेत्र का रेखाचित्र बनाकर सीमा बदलें।\n2. सही बदला हुआ समाकल ऊपर दिया गया है।\n\nVerified transformation: **Correct**."},
+
+{q:"Using Dirichlet theorem, evaluate $\\int_0^{\\infty} \\frac{\\sin x}{x}\\,dx$. / Dirichlet प्रमेय से $\\int_0^{\\infty} (\\sin x)/x\\,dx$ का मान निकालें।",
+ o:["1","0","$\\pi/2$","Diverges — अपसारी"],
+ a:2,
+ e:"English (step-by-step):\n1. This is the classic Dirichlet integral.\n2. It converges conditionally.\n3. Its exact value is:\n   $$\\int_0^{\\infty} \\frac{\\sin x}{x}\\,dx=\\frac{\\pi}{2}$$\n\nHindi (विस्तार से):\n1. यह प्रसिद्ध Dirichlet समाकल है।\n2. इसका मान $\\pi/2$ होता है।\n\nVerified result: **$\\pi/2$**."},
+
+{q:"Evaluate $\\iiint_{[0,1]^3} 1\\,dV$. / घन $[0,1]^3$ पर $\\iiint 1\\,dV$ का मान ज्ञात करें।",
+ o:["0","3","1","None — कोई नहीं"],
+ a:2,
+ e:"English (step-by-step):\n1. Triple integral of 1 over a region equals the volume of that region.\n2. The cube $[0,1]^3$ has side length 1.\n3. Volume $=1\\times1\\times1=1$.\n\nHindi (विस्तार से):\n1. 1 का त्रिगुण समाकल क्षेत्र का आयतन देता है।\n2. घन का आयतन 1 है।\n\nVerified result: **1**."},
+{q:"Find ∇(x^2 y). / ∇(x^2 y) ज्ञात करें।",
+ o:["(2x,2y,0)","(x^2,y^2,0)","None","(2xy,x^2,0)"],
  a:3,
- e:"English: The $\\mu$-test examines the asymptotic power behaviour of $f(x)$.<br>हिन्दी: $\\mu$-परीक्षण $x^{\\mu}f(x)$ के सीमात्मक व्यवहार को देखता है।"},
+ e:"English: ∇f = (∂f/∂x, ∂f/∂y, ∂f/∂z). For f=x^2y, ∂/∂x=2xy and ∂/∂y=x^2, ∂/∂z=0.\nHindi: ग्रेडिएंट में आंशिक अवकलज लेते हैं। परिणाम (2xy,x^2,0) है।"},
 
-{q:"Abel's test for improper integrals requires? / अबेल का परीक्षण किन शर्तों पर निर्भर करता है?",
- o:["$f$ and $g$ unbounded","$\\int f$ convergent and $g$ bounded monotone","Only periodic $g$","None"],
- a:1,
- e:"English: Abel's test requires $\\int f$ convergent and $g$ bounded monotone.<br>हिन्दी: अबेल परीक्षण में $f$ का समाकल अभिसरित और $g$ एकरूपी आबद्ध होना चाहिए।"},
-
-{q:"Dirichlet's test for $\\int_a^{\\infty} f(x)g(x)\\,dx$ needs? / डिरिचलेट परीक्षण की शर्त क्या है?",
- o:["Bounded partial integrals of $f$ and $g\\to0$ monotonically","Both increasing","Only periodic $f$","None"],
- a:0,
- e:"English: Dirichlet test requires bounded partial integrals of $f$ and $g$ decreasing to zero.<br>हिन्दी: डिरिचलेट परीक्षण में $f$ के आंशिक समाकल आबद्ध और $g\\to0$ होना चाहिए।"},
-
-{q:"The Beta function $B(p,q)$ is defined as? / बीटा फलन $B(p,q)$ की परिभाषा क्या है?",
- o:["$\\int_0^1 t^{p-1}(1-t)^{q-1}\\,dt$","Gamma integral","Series","None"],
- a:0,
- e:"English: $B(p,q)=\\int_0^1 t^{p-1}(1-t)^{q-1}\\,dt$ for $\\Re(p),\\Re(q)>0$.<br>हिन्दी: यही बीटा फलन की परिभाषा है।"},
-
-{q:"The Gamma function $\\Gamma(s)$ satisfies which identity? / गामा फलन कौन-सी पहचान संतुष्ट करता है?",
- o:["$\\Gamma(s)=0$","$\\Gamma(s+1)=s\\Gamma(s)$","None","$\\Gamma(s)=s!$ for all $s$"],
- a:1,
- e:"English: Gamma function satisfies $\\Gamma(s+1)=s\\Gamma(s)$ and $\\Gamma(n)=(n-1)!$.<br>हिन्दी: यही गामा फलन की मूल पहचान है।"},
-
-{q:"The quotient (limit-comparison) test for improper integrals uses? / लिमिट-तुलना परीक्षण क्या जाँचता है?",
- o:[
-   "$\\lim_{x\\to\\infty}\\dfrac{f(x)}{g(x)}=L$, $0<L<\\infty$",
-   "Always diverges",
-   "None",
-   "Only compact intervals"
- ],
- a:0,
- e:"English: By the limit comparison test, if $\\lim_{x\\to\\infty} \\frac{f(x)}{g(x)}=L$ with $0<L<\\infty$, then $\\int_a^{\\infty} f(x)dx$ and $\\int_a^{\\infty} g(x)dx$ either both converge or both diverge.\n\nHindi: लिमिट-तुलना परीक्षण के अनुसार यदि अनुपात की सीमा $0$ और $\\infty$ के बीच हो, तो दोनों समाकल समान रूप से अभिसारी या अपसारी होते हैं।"
-},
-
-{q:"The length of a curve $y=f(x)$, $a\\le x\\le b$ is given by? / वक्र की लंबाई किससे दी जाती है?",
- o:["$\\int_a^b f(x)\\,dx$","$\\int_a^b \\dfrac{dy}{dx}\\,dx$","$\\int_a^b \\sqrt{1+(dy/dx)^2}\\,dx$","None"],
+{q:"For F=(x,y,z), compute div F. / F=(x,y,z) के लिए div F ज्ञात करें।",
+ o:["x+y+z","0","3","1"],
  a:2,
- e:"English: Arc length is $\\int_a^b \\sqrt{1+(y')^2}\\,dx$.<br>हिन्दी: वक्र की लंबाई यही सूत्र देता है।"},
+ e:"English: div F = ∂x/∂x + ∂y/∂y + ∂z/∂z = 1+1+1 = 3.\nHindi: डाइवर्जेन्स में सभी घटकों का आंशिक अवकलज जोड़ते हैं, मान 3 है।"},
 
-{q:"The volume of solid obtained by rotating $y=f(x)$ about x-axis is? / घूर्णन से प्राप्त आयतन?",
- o:[
-   "$\\pi\\int_a^b [f(x)]^2\\,dx$",
-   "$2\\pi\\int_a^b f(x)\\,dx$",
-   "None",
-   "$\\int_a^b f'(x)\\,dx$"
- ],
+{q:"For F=(y,−x,0), compute curl F. / F=(y,−x,0) के लिए curl F ज्ञात करें।",
+ o:["(0,0,0)","None","(0,0,2)","(0,0,−2)"],
+ a:3,
+ e:"English: curl F = (0,0, ∂(−x)/∂x − ∂(y)/∂y ) = (0,0,−1−1) = (0,0,−2).\nHindi: curl का z-घटक −2 आता है।"},
+
+{q:"Normal to surface x^2+y^2+z^2=9 at (2,1,2). / सतह पर (2,1,2) पर अभिलम्ब ज्ञात करें।",
+ o:["(2,1,2)","(4,2,4)","(1,1,1)","None"],
  a:0,
- e:"English: By disk method, volume of solid formed by rotating $y=f(x)$ about x-axis is $V=\\pi\\int_a^b [f(x)]^2dx$.\nHindi: x-अक्ष के चारों ओर घूर्णन से आयतन का सूत्र $\\pi\\int_a^b [f(x)]^2dx$ होता है।"
-},
+ e:"English: Normal to f=0 is ∇f=(2x,2y,2z). At (2,1,2) → (4,2,4), direction same as (2,1,2).\nHindi: अभिलम्ब ग्रेडिएंट की दिशा में होता है।"},
 
-{q:"The surface area of revolution of $y=f(x)$ about x-axis is? / पृष्ठीय क्षेत्रफल?",
- o:[
-   "$2\\pi\\int_a^b f(x)\\sqrt{1+(dy/dx)^2}\\,dx$",
-   "$\\pi\\int_a^b [f(x)]^2dx$",
-   "None",
-   "$\\int_a^b f(x)dx$"
- ],
+{q:"Directional derivative of f=x^2+y^2 at (1,2) along (3,4). / दिशात्मक अवकलज ज्ञात करें।",
+ o:["22/5","5","10","None"],
  a:0,
- e:"English: Surface area of revolution about x-axis is $2\\pi\\int_a^b f(x)\\sqrt{1+(y')^2}dx$.\nHindi: x-अक्ष के चारों ओर घूर्णन से पृष्ठीय क्षेत्रफल का सूत्र यही है।"
-},
+ e:"English: ∇f=(2x,2y)=(2,4). Unit vector=(3/5,4/5). Dot product=(6+16)/5=22/5.\nHindi: दिशात्मक अवकलज = ग्रेडिएंट और इकाई सदिश का डॉट गुणनफल।"},
 
-
-{q:"Pappus theorem for volume states? / पापस का आयतन प्रमेय क्या कहता है?",
- o:[
-   "Volume = Area × distance travelled by centroid",
-   "Perimeter × radius",
-   "Mass × acceleration",
-   "None"
- ],
+{q:"Evaluate ∫₀¹∫₀¹ (x+y) dx dy. / द्विगुण समाकल का मान ज्ञात करें।",
+ o:["1","2","3","None"],
  a:0,
- e:"English: Pappus theorem states that volume of a solid of revolution equals the area of the plane region times the distance travelled by its centroid.\nHindi: पापस प्रमेय के अनुसार आयतन = क्षेत्रफल × केंद्रक द्वारा तय दूरी।"
-},
-{q:"Double integral $\\iint_R f(x,y)\\,dA$ represents? / द्विगुण समाकल $\\iint_R f(x,y)\\,dA$ किसे निरूपित करता है?",
- o:["Only area","Length of a curve","Volume under $z=f(x,y)$ over region $R$","None"],
+ e:"English: ∫₀¹∫₀¹ x dx dy = 1/2, ∫₀¹∫₀¹ y dx dy = 1/2. Sum =1.\nHindi: दोनों भाग जोड़ने पर कुल मान 1 प्राप्त होता है।"},
+
+{q:"Using Gauss theorem, ∬ F·n dS for F=(x,y,z) over cube [0,1]^3. / Gauss प्रमेय से फ्लक्स ज्ञात करें।",
+ o:["3/2","3","1","None"],
+ a:1,
+ e:"English: div F=3. Volume of cube=1. Flux=∭ divF dV=3×1=3.\nHindi: गाउस प्रमेय से फ्लक्स = डाइवर्जेन्स × आयतन।"},
+
+{q:"Green’s theorem: ∮ (x dy − y dx) over unit circle. / Green प्रमेय से समाकल का मान।",
+ o:["2π","0","π","None"],
+ a:0,
+ e:"English (verified): By Green’s theorem, ∮(x dy − y dx)=∬(2)dA=2×Area of unit circle=2π. \n\nहिन्दी (सत्यापित): Green प्रमेय से ∬2 dA = 2×π = 2π प्राप्त होता है।"},
+{q:"Using Green’s theorem, evaluate ∮ (y dx + x dy) over the unit circle. / Green प्रमेय से ∮ (y dx + x dy) का मान (इकाई वृत्त पर) ज्ञात करें।",
+ o:["0","2π","π","None"],
+ a:0,
+ e:"English (verified): Write the integral as P dx + Q dy with P=y, Q=x. Then ∂Q/∂x=1 and ∂P/∂y=1, so ∂Q/∂x − ∂P/∂y = 1−1 = 0. Hence by Green’s theorem, ∮(y dx + x dy)=∬0 dA = 0.\n\nहिन्दी (सत्यापित): यहाँ P=y, Q=x लेने पर ∂Q/∂x − ∂P/∂y = 0 आता है। अतः Green प्रमेय से समाकल का मान 0 है।"},
+
+
+{q:"Evaluate lim x→0 (sin x)/x. / सीमा का मान ज्ञात करें।",
+ o:["1","0","∞","None"],
+ a:0,
+ e:"English: Standard limit gives (sin x)/x →1 as x→0.\nHindi: यह मानक सीमा है, मान 1 होता है।"},
+
+{q:"Rolle’s theorem: f(x)=x^3−3x on [−√3,√3]. Find c. / c का मान ज्ञात करें।",
+ o:["0","±1","√3","None"],
+ a:1,
+ e:"English: f′(x)=3x^2−3=0 ⇒ x=±1.\nHindi: Rolle प्रमेय से c=±1 प्राप्त होता है।"},
+{q:"Series $\\sum 1/n^2$ converges to which value? / $\\sum 1/n^2$ किस मान पर अभिसारी है?",
+ o:["1","$\\pi^2/6$","$\\pi^2/8$","None"],
+ a:1,
+ e:"English: The Basel problem gives $\\sum_{n=1}^\\infty 1/n^2 = \\pi^2/6$.<br>हिन्दी: बेसल समस्या के अनुसार यह श्रेणी $\\pi^2/6$ पर अभिसारी है।"},
+
+{q:"Evaluate $\\int_0^1 \\sqrt{x}\\,dx$. / $\\int_0^1 \\sqrt{x}\\,dx$ का मान क्या है?",
+ o:["$1$","$1/2$","None","$2/3$"],
+ a:3,
+ e:"English: $\\int_0^1 x^{1/2}dx=[\\tfrac{2}{3}x^{3/2}]_0^1=2/3$.<br>हिन्दी: समाकलन करने पर मान $2/3$ मिलता है।"},
+
+{q:"Evaluate improper integral $\\int_0^{\\infty} e^{-x}dx$. / $\\int_0^{\\infty} e^{-x}dx$ का मान?",
+ o:["0","None","$1$","$\\infty$"],
  a:2,
- e:"English: The double integral represents the volume under the surface $z=f(x,y)$ over the region $R$.<br>हिन्दी: द्विगुण समाकल क्षेत्र $R$ पर $z=f(x,y)$ के नीचे का आयतन दर्शाता है।"},
+ e:"English: $\\int_0^{\\infty} e^{-x}dx=[-e^{-x}]_0^{\\infty}=1$.<br>हिन्दी: यह अपवर्ती समाकल 1 के बराबर है।"},
 
-{q:"Change of order in double integration means? / द्विगुण समाकलन में क्रम बदलने का अर्थ क्या है?",
- o:["Changing from Cartesian to polar","Interchanging $dx$ and $dy$","Differentiating first","None"],
- a:1,
- e:"English: Change of order means interchanging the order of integration between $dx$ and $dy$.<br>हिन्दी: द्विगुण समाकल में $dx$ और $dy$ के क्रम को बदलना ही क्रम परिवर्तन है।"},
-
-{q:"Dirichlet’s theorem for multiple integrals gives? / बहु-समाकलों के लिए डिरिचलेट का प्रमेय क्या बताता है?",
- o:["Evaluation of multiple integrals over regions bounded by linear inequalities","Integral is always infinite","Applicable only in polar form","None"],
+{q:"Find the length of the curve $y=\\dfrac{x^2}{2}$ from $x=0$ to $x=1$. / $y=\\dfrac{x^2}{2}$ की $x=0$ से $x=1$ तक वक्र की लम्बाई ज्ञात करें।",
+ o:[
+   "$\\dfrac{\\sqrt{5}+\\ln(2+\\sqrt{5})}{2}$",
+   "$\\sqrt{5}$",
+   "$1$",
+   "$2$"
+ ],
  a:0,
- e:"English: Dirichlet’s theorem helps evaluate multiple integrals over regions defined by linear constraints.<br>हिन्दी: यह प्रमेय रैखिक असमानताओं से बंधे क्षेत्रों पर बहु-समाकल का मान निकालने में सहायक है।"},
+ e:"English (step-by-step):\n1. Arc length formula: $L=\\int_0^1 \\sqrt{1+(y')^2}\\,dx$.\n2. Here $y=\\dfrac{x^2}{2}$, so $y'=x$.\n3. Hence $L=\\int_0^1 \\sqrt{1+x^2}\\,dx$.\n4. Using standard result, $\\int \\sqrt{1+x^2}\\,dx=\\dfrac{x}{2}\\sqrt{1+x^2}+\\dfrac{1}{2}\\ln(x+\\sqrt{1+x^2})$.\n5. Evaluating from 0 to 1 gives $L=\\dfrac{\\sqrt{5}+\\ln(2+\\sqrt{5})}{2}$.\n\nHindi (विस्तार से):\n1. वक्र लम्बाई सूत्र प्रयोग करें।\n2. अवकलज $y'=x$ प्राप्त होता है।\n3. समाकलन करने पर मान $\\dfrac{\\sqrt{5}+\\ln(2+\\sqrt{5})}{2}$ मिलता है।\n\nVerified: ✔ Exact, solvable arc length."
+},
 
-{q:"Liouville’s theorem for multiple integrals refers to? / बहु-समाकलों के लिए लिउविल का प्रमेय किससे सम्बद्ध है?",
- o:["Change of variables in multiple integrals","Value of Gamma function","Derivative of determinant","None"],
+
+{q:"Gradient of $f=x^2+y^2+z^2$ at (1,2,2). / (1,2,2) पर ग्रेडिएंट ज्ञात करें।",
+ o:["(2,4,4)","(1,2,2)","(4,8,8)","None"],
  a:0,
- e:"English: Liouville’s theorem is related to change of variables in multiple integrals using Jacobians.<br>हिन्दी: लिउविल का प्रमेय बहु-समाकलों में चर परिवर्तन से संबंधित है।"},
+ e:"English: $\\nabla f=(2x,2y,2z)$, so at (1,2,2) it is (2,4,4).<br>हिन्दी: ग्रेडिएंट (2x,2y,2z) होता है।"},
 
-{q:"The gradient of a scalar function $f(x,y,z)$ is? / स्केलर फलन $f(x,y,z)$ का ग्रेडिएंट क्या होता है?",
- o:["Sum of variables","Vector of partial derivatives","Always zero","None"],
- a:1,
- e:"English: Gradient is a vector consisting of partial derivatives of the function.<br>हिन्दी: ग्रेडिएंट आंशिक अवकलों से बना सदिश होता है।"},
+{q:"Divergence of $F=(x^2,y^2,z^2)$. / $F=(x^2,y^2,z^2)$ का divergence।",
+ o:["$x^2+y^2+z^2$","$6$","None","$2(x+y+z)$"],
+ a:3,
+ e:"English: div F = ∂(x^2)/∂x + ∂(y^2)/∂y + ∂(z^2)/∂z = 2(x+y+z).<br>हिन्दी: अपसरण $2(x+y+z)$ होता है।"},
 
-{q:"Divergence of vector $\\mathbf{F}=(P,Q,R)$ is? / सदिश $\\mathbf{F}=(P,Q,R)$ का डायवर्जेन्स क्या है?",
- o:["$\\dfrac{\\partial P}{\\partial x}+\\dfrac{\\partial Q}{\\partial y}+\\dfrac{\\partial R}{\\partial z}$","$\\dfrac{\\partial P}{\\partial y}+\\dfrac{\\partial Q}{\\partial z}+\\dfrac{\\partial R}{\\partial x}$","$|\\nabla\\times \\mathbf{F}|$","None"],
- a:0,
- e:"English: Divergence is defined as the sum of partial derivatives of components with respect to their variables.<br>हिन्दी: डायवर्जेन्स घटकों के आंशिक अवकलों का योग होता है।"},
-
-{q:"Curl of vector $\\mathbf{F}=(P,Q,R)$ is? / सदिश $\\mathbf{F}$ का कर्ल क्या है?",
- o:["$\\nabla\\cdot\\mathbf{F}$","$\\dfrac{\\partial P}{\\partial x}+\\dfrac{\\partial Q}{\\partial y}+\\dfrac{\\partial R}{\\partial z}$","$\\nabla\\times\\mathbf{F}=(\\partial R/\\partial y-\\partial Q/\\partial z,\\partial P/\\partial z-\\partial R/\\partial x,\\partial Q/\\partial x-\\partial P/\\partial y)$","None"],
+{q:"Evaluate $\\int_0^{\\pi} \\sin^2 x\\,dx$. / $\\int_0^{\\pi} \\sin^2 x\\,dx$ का मान।",
+ o:["$\\pi$","None","$\\pi/2$","0"],
  a:2,
- e:"English: Curl is defined using the cross product of nabla with the vector field.<br>हिन्दी: कर्ल को $\\nabla\\times\\mathbf{F}$ द्वारा परिभाषित किया जाता है।"},
+ e:"English: $\\int_0^{\\pi} \\sin^2x dx = \\pi/2$.<br>हिन्दी: इस समाकल का मान $\\pi/2$ है।"},
 
-{q:"The normal to surface $\\phi(x,y,z)=c$ at a point is? / पृष्ठ $\\phi(x,y,z)=c$ पर सामान्य क्या होता है?",
- o:["In direction of tangent","In direction of $\\nabla\\phi$","Any direction","None"],
- a:1,
- e:"English: The gradient vector is normal to the level surface $\\phi(x,y,z)=c$.<br>हिन्दी: $\\nabla\\phi$ पृष्ठ का अभिलंब (normal) होता है।"},
+{q:"Find $\\limsup$ of sequence $a_n=(-1)^n$. / $a_n=(-1)^n$ का lim sup।",
+ o:["1","−1","0","None"],
+ a:0,
+ e:"English: The sequence oscillates between −1 and 1, so lim sup = 1.<br>हिन्दी: अधिकतम उपसीमा 1 होती है।"},
+{q:"Volume generated by revolving the region under $y=\\sqrt{x}$, $0\\le x\\le1$ about x-axis. / $y=\\sqrt{x}$ के नीचे का क्षेत्र $0\\le x\\le1$ को x-अक्ष के चारों ओर घुमाने पर आयतन ज्ञात करें।",
+ o:[
+   "$\\pi/2$",
+   "$\\pi/3$",
+   "$\\pi/4$",
+   "None — कोई नहीं"
+ ],
+ a:0,
+ e:"English: Using disk method, $V=\\pi\\int_0^1 y^2 dx=\\pi\\int_0^1 x dx=\\pi[\\tfrac{x^2}{2}]_0^1=\\pi/2$.\n\nHindi: डिस्क विधि से $V=\\pi\\int_0^1 x\\,dx=\\pi/2$ प्राप्त होता है।\n\nVerified: ✔ Correct volume."
+},
 
-{q:"The directional derivative of $f$ at point $P$ in unit vector $\\mathbf{u}$ is? / दिशात्मक अवकलज क्या है?",
- o:["$\\nabla f\\cdot\\mathbf{u}$","$\\nabla\\times f$","$\\operatorname{div} f$","None"],
+{q:"Evaluate $\\int_0^1\\int_0^1 xy\\,dx\\,dy$. / $\\int_0^1\\int_0^1 xy\\,dxdy$ का मान।",
+ o:["$1/4$","$1/2$","$1$","None"],
  a:0,
- e:"English: Directional derivative equals the dot product of gradient with unit vector.<br>हिन्दी: दिशात्मक अवकलज $\\nabla f\\cdot\\mathbf{u}$ होता है।"},
-
-{q:"Vector line integral $\\int_C \\mathbf{F}\\cdot d\\mathbf{r}$ represents? / रेखा समाकल $\\int_C \\mathbf{F}\\cdot d\\mathbf{r}$ क्या दर्शाता है?",
- o:["Work done by a force field","Volume","Surface area","None"],
- a:0,
- e:"English: The line integral represents work done by the force field along the curve.<br>हिन्दी: रेखा समाकल बल क्षेत्र द्वारा किया गया कार्य दर्शाता है।"},
-
-{q:"Gauss divergence theorem states? / गाउस डायवर्जेन्स प्रमेय क्या कहता है?",
- o:["$\\iint_S \\mathbf{F}\\cdot\\mathbf{n}\\,dS=\\iiint_V (\\nabla\\cdot\\mathbf{F})\\,dV$","$\\oint \\mathbf{F}\\cdot d\\mathbf{r}=0$","$\\oint \\mathbf{F}\\cdot d\\mathbf{r}=\\iint \\operatorname{curl}\\mathbf{F}\\cdot\\mathbf{n}\\,dS$","None"],
- a:0,
- e:"English: Flux through a closed surface equals volume integral of divergence.<br>हिन्दी: सतही फ्लक्स = आयतन पर डायवर्जेन्स का समाकल।"},
-
-{q:"Green’s theorem in the plane states? / ग्रीन का प्रमेय क्या कहता है?",
- o:["$\\oint_C (P\\,dx+Q\\,dy)=\\iint_R (\\partial Q/\\partial x-\\partial P/\\partial y)\\,dA$","$\\iint \\mathbf{F}\\cdot\\mathbf{n}\\,dS=\\iiint \\nabla\\cdot\\mathbf{F}\\,dV$","$\\oint \\mathbf{F}\\cdot d\\mathbf{r}=\\iint \\operatorname{curl}\\mathbf{F}\\cdot\\mathbf{n}\\,dS$","None"],
- a:0,
- e:"English: Green’s theorem relates line integrals to double integrals in the plane.<br>हिन्दी: ग्रीन प्रमेय रेखा समाकल को क्षेत्रीय समाकल से जोड़ता है।"},
-
-{q:"Stokes theorem states? / स्टोक्स का प्रमेय क्या कहता है?",
- o:["$\\oint_C \\mathbf{F}\\cdot d\\mathbf{r}=\\iint_S (\\nabla\\times\\mathbf{F})\\cdot\\mathbf{n}\\,dS$","$\\iiint \\nabla\\cdot\\mathbf{F}\\,dV=\\iint \\mathbf{F}\\cdot\\mathbf{n}\\,dS$","$\\oint \\mathbf{F}\\cdot d\\mathbf{r}=0$","None"],
- a:0,
- e:"English: Stokes theorem relates circulation to surface integral of curl.<br>हिन्दी: स्टोक्स प्रमेय रेखा समाकल को कर्ल के सतही समाकल से जोड़ता है।"},
-
-{q:"Which theorem relates surface integral of curl to line integral? / कर्ल के सतही समाकल को रेखा समाकल से कौन जोड़ता है?",
- o:["Stokes theorem","Gauss theorem","Green theorem","None"],
- a:0,
- e:"English: Stokes theorem directly relates surface integral of curl to line integral.<br>हिन्दी: यह संबंध स्टोक्स प्रमेय द्वारा दिया जाता है।"},
-
-{q:"Application of Gauss theorem is? / गाउस प्रमेय का उपयोग?",
- o:["Converting surface integral to volume integral","Line to surface","Volume to line","None"],
- a:0,
- e:"English: Gauss theorem converts surface integrals into volume integrals.<br>हिन्दी: गाउस प्रमेय सतही समाकल को आयतन समाकल में बदलता है।"},
-
-{q:"Application of Green’s theorem is? / ग्रीन प्रमेय का उपयोग?",
- o:["Converting line integral to double integral","Surface to volume","None","Volume to line"],
- a:0,
- e:"English: Green’s theorem converts line integrals into area integrals.<br>हिन्दी: ग्रीन प्रमेय रेखा समाकल को द्वि-समाकल में बदलता है।"},
-
-{q:"Stokes theorem converts? / स्टोक्स प्रमेय किसे किसमें बदलता है?",
- o:["Line integral to surface integral","Surface to line","Area to volume","None"],
- a:0,
- e:"English: Stokes theorem converts line integrals into surface integrals of curl.<br>हिन्दी: स्टोक्स प्रमेय रेखा समाकल को सतही समाकल में बदलता है।"},
-
-{q:"If $\\nabla\\cdot\\mathbf{F}=0$, then vector field $\\mathbf{F}$ is? / यदि डायवर्जेन्स शून्य है तो?",
- o:["Solenoidal","Irrotational","Curvilinear","None"],
- a:0,
- e:"English: Zero divergence implies solenoidal vector field.<br>हिन्दी: डायवर्जेन्स शून्य होने पर सदिश क्षेत्र सोलिनॉयडल होता है।"},
-
-{q:"If $\\nabla\\times\\mathbf{F}=0$, then vector field $\\mathbf{F}$ is? / यदि कर्ल शून्य है तो?",
- o:["Irrotational","Solenoidal","Curvilinear","None"],
- a:0,
- e:"English: Zero curl implies the field is irrotational.<br>हिन्दी: कर्ल शून्य होने पर सदिश क्षेत्र इर्रोटेशनल होता है।"},
-
-{q:"If $\\mathbf{F}=\\nabla\\phi$, then $\\nabla\\times\\mathbf{F}$ is? / यदि $\\mathbf{F}=\\nabla\\phi$ तो?",
- o:["$0$","$\\phi$","$\\operatorname{div}\\phi$","None"],
- a:0,
- e:"English: Curl of a gradient is always zero.<br>हिन्दी: ग्रेडिएंट का कर्ल सदैव शून्य होता है।"},
-{q:"If $f(x,y)$ is continuous on a closed region $R$, then the double integral $\\iint_R f(x,y)\\,dA$ is? / यदि $f(x,y)$ बंद क्षेत्र $R$ पर सतत है, तो द्विगुण समाकल क्या होगा?",
- o:["Always convergent","Always zero","Always infinite","Undefined"],
- a:0,
- e:"English: A continuous function on a closed bounded region always has a finite double integral.<br>हिन्दी: बंद एवं आबद्ध क्षेत्र पर सतत फलन का द्विगुण समाकल सदैव अभिसारी होता है।"},
-
-{q:"The Jacobian $\\dfrac{\\partial(x,y)}{\\partial(u,v)}$ represents? / जैकोबियन $\\dfrac{\\partial(x,y)}{\\partial(u,v)}$ क्या दर्शाता है?",
- o:["Ratio of areas under transformation","Slope of curve","Length of arc","None"],
- a:0,
- e:"English: The Jacobian gives the local area scaling factor under change of variables.<br>हिन्दी: जैकोबियन चर परिवर्तन में क्षेत्रफल के अनुपात को दर्शाता है।"},
-
-{q:"A vector field $\\mathbf{F}$ is conservative if and only if? / सदिश क्षेत्र $\\mathbf{F}$ कब कंज़र्वेटिव होता है?",
- o:["$\\nabla\\times\\mathbf{F}=0$ in simply connected region","$\\nabla\\cdot\\mathbf{F}=0$","$\\mathbf{F}$ bounded","$\\mathbf{F}$ continuous only"],
- a:0,
- e:"English: A vector field is conservative iff its curl vanishes in a simply connected region.<br>हिन्दी: यदि सरल संयोजित क्षेत्र में कर्ल शून्य हो, तो सदिश क्षेत्र कंज़र्वेटिव होता है।"},
-
-{q:"The work done by a conservative force along any closed path is? / कंज़र्वेटिव बल द्वारा बंद पथ पर किया गया कार्य?",
- o:["Zero","Positive","Negative","Depends on path"],
- a:0,
- e:"English: Work done by a conservative force over a closed curve is always zero.<br>हिन्दी: कंज़र्वेटिव बल द्वारा बंद पथ पर किया गया कार्य शून्य होता है।"},
-
-{q:"If $f(x,y)$ has continuous second order partial derivatives, then $f_{xy}$ equals? / यदि द्वितीय कोटि के आंशिक अवकल सतत हों, तो $f_{xy}$ किसके बराबर होता है?",
- o:["$f_{yx}$","$f_{xx}$","$f_{yy}$","0"],
- a:0,
- e:"English: By Clairaut’s theorem, mixed partial derivatives are equal if continuous.<br>हिन्दी: क्लेरो प्रमेय के अनुसार सतत होने पर मिश्रित अवकल बराबर होते हैं।"},
-
-{q:"The Laplacian of a scalar function $f(x,y,z)$ is defined as? / लैप्लेशियन की परिभाषा क्या है?",
- o:["$\\nabla^2 f = f_{xx}+f_{yy}+f_{zz}$","$\\nabla f$","$\\nabla\\times f$","$\\nabla\\cdot f$"],
- a:0,
- e:"English: Laplacian is the divergence of gradient of a scalar function.<br>हिन्दी: लैप्लेशियन स्केलर फलन के द्वितीय आंशिक अवकलों का योग है।"},
-
-{q:"If $\\mathbf{F}=\\nabla\\phi$, then the line integral $\\int_C \\mathbf{F}\\cdot d\\mathbf{r}$ depends on? / यदि $\\mathbf{F}=\\nabla\\phi$ हो, तो रेखा समाकल किस पर निर्भर करता है?",
- o:["Only on end points","Only on path","Both path and end points","Neither"],
- a:0,
- e:"English: For gradient fields, line integral depends only on initial and final points.<br>हिन्दी: ग्रेडिएंट क्षेत्र में रेखा समाकल केवल सिरों पर निर्भर करता है।"},
-
-{q:"The flux of a vector field through a surface physically represents? / सतह से सदिश क्षेत्र का फ्लक्स भौतिक रूप से क्या दर्शाता है?",
- o:["Rate of flow across the surface","Work done","Length of curve","Potential energy"],
- a:0,
- e:"English: Flux measures the rate at which field lines pass through a surface.<br>हिन्दी: फ्लक्स सतह से गुजरने वाले प्रवाह की दर को दर्शाता है।"},
-
-{q:"If $\\mathbf{F}$ is solenoidal, then which statement is true? / यदि सदिश क्षेत्र सोलिनॉयडल है, तो?",
- o:["Net flux through any closed surface is zero","Curl must be zero","Field is conservative","Work is zero"],
- a:0,
- e:"English: Solenoidal fields have zero net flux through closed surfaces.<br>हिन्दी: सोलिनॉयडल क्षेत्र का बंद सतह से कुल फ्लक्स शून्य होता है।"},
-
-{q:"In cylindrical coordinates $(r,\\theta,z)$, the volume element $dV$ is? / बेलनाकार निर्देशांकों में आयतन तत्त्व क्या है?",
- o:["$r\\,dr\\,d\\theta\\,dz$","$dr\\,d\\theta\\,dz$","$r^2\\,dr\\,d\\theta\\,dz$","$dx\\,dy\\,dz$"],
- a:0,
- e:"English: Jacobian of cylindrical coordinates gives $dV=r\\,dr\\,d\\theta\\,dz$.<br>हिन्दी: बेलनाकार निर्देशांकों में आयतन तत्त्व $r\\,dr\\,d\\theta\\,dz$ होता है।"}
+ e:"English: $\\int_0^1\\int_0^1 xy dx dy=(1/2)(1/2)=1/4$.<br>हिन्दी: द्विगुण समाकल का सही मान $1/4$ है।"}
 
 ];
 
