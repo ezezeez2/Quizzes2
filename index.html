@@ -15,6 +15,44 @@ window.MathJax = {
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
 <style>
+  /* SCORE MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.6);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:200;
+}
+
+.modal-box{
+  background:#0f1724;
+  padding:24px;
+  border-radius:14px;
+  width:90%;
+  max-width:380px;
+  text-align:center;
+  position:relative;
+  box-shadow:0 20px 60px rgba(0,0,0,0.5);
+}
+
+.modal-box h2{
+  margin-top:0;
+  color:#60a5fa;
+}
+
+.close-btn{
+  position:absolute;
+  top:10px;
+  right:10px;
+  border:none;
+  background:transparent;
+  color:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
+
 /* ===== ORIGINAL UI (UNCHANGED) ===== */
 :root{
   --bg:#071026;
@@ -249,6 +287,15 @@ body{
     <div id="question"></div>
     <div id="options"></div>
     <div id="explanation"></div>
+  </div>
+</div>
+<!-- SCORE POPUP -->
+<div id="scoreModal" class="modal">
+  <div class="modal-box">
+    <button class="close-btn" onclick="closeScore()">✖</button>
+    <h2>Quiz Result</h2>
+    <p id="scoreText"></p>
+    <p id="timeText"></p>
   </div>
 </div>
 
@@ -864,9 +911,27 @@ function submitQuiz(){
   if(submitted) return;
   submitted=true;
   clearInterval(timer);
+
+  let score=0;
+  answers.forEach((a,i)=>{
+    if(a===quiz[i].a) score++;
+  });
+
+  document.getElementById("scoreText").innerHTML =
+    `<b>Score:</b> ${score} / ${quiz.length}`;
+
+  document.getElementById("timeText").innerHTML =
+    `<b>Time Taken:</b> ${Math.floor(time/60)} min ${time%60} sec`;
+
+  document.getElementById("scoreModal").style.display="flex";
+
   updatePalette();
   showAnswer();
 }
+function closeScore(){
+  document.getElementById("scoreModal").style.display="none";
+}
+
 
 /* ANSWER */
 function showAnswer(){
